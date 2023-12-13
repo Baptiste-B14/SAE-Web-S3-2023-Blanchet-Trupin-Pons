@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+    COMMENTAIRES GENERAUX
+
+    - attention aux \ dasn les arborescence fichier = correspond à windows
+    - pour l'instant il y a séparation des fichiers html et du php pour une meme page
+    - lien de la maquette : https://miro.com/app/board/uXjVNJJSWkw=/
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link rel="stylesheet" href="bootstrap-4.4.1-dist\css\bootstrap.css">-->
+        <link rel="stylesheet" href="C:\Users\gaspa\OneDrive\Documents\cours BUT\SAE Javaski\GIT Site web\Site-Javaski\Javaski\Form_Creation.css">
+    </head>
+    <body>
+        <!--Scripts JS nécessaire à bootstrap
+        <script src="bootstrap-4.4.1-dist\js\jquery-3.4.1.min.js"></script>
+        <script src="bootstrap-4.4.1-dist\js\bootstrap.js"></script>-->
+        <script src="C:\Users\gaspa\OneDrive\Documents\cours BUT\SAE Javaski\GIT Site web\Site-Javaski\Javaski\Form_Creation.js"></script>
+    
+        <form> 
+            <label for="pp">Photo de Profil : </label> 
+            <br/>
+            <div class="containerPP">
+            <div id="pppreview" class="pp-preview"></div>
+            <input type="file" id="pp" name="pp" accept="image/*"> 
+            </div>
+            <br/>  
+            <label for="prenom">Prénom: </label> 
+            <br/>  
+            <input type="text" id="prenom" name="prenom"/> 
+            <br/>  
+            <input type="submit" value="submit">  
+        </form>
+
+    </body>
+</html>

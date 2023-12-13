@@ -1,0 +1,14 @@
+
+#pppreview {
+    width: 150px; /* Définir la largeur fixe */
+    height: 150px; /* Définir la hauteur fixe */
+    border-radius: 50%; /* Rendre l'image circulaire en utilisant une valeur de bordure égale à la moitié de la largeur/hauteur */
+    overflow: hidden; /* Cela assure que l'image ne dépasse pas les limites du cercle */
+}
+  
+#pppreview img {
+    width: 100%; /* Assurer que l'image occupe 100% de la largeur du conteneur (cercle) */
+    height: 100%; /* Assurer que l'image occupe 100% de la hauteur du conteneur (cercle) */
+    object-fit: cover; /* Cela garantit que l'image est redimensionnée pour couvrir entièrement le conteneur */
+    border-radius: 50%; /* Vous pouvez également appliquer la bordure au cas où l'image serait rectangulaire */
+}
