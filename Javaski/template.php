@@ -7,7 +7,7 @@
 <body>
 	<header> 
 		<?php
-		echo $compMenu->affiche();
+			echo $compMenu->affiche();
 		?>
 	</header>
 	<main>
