@@ -5,22 +5,22 @@ class VueMenus {
 	public function __construct() {
 		$this->affichageMenu = '
 		<ul>
-			<a href="index.php?module=1">Le Jeu</a>
+			<a href="index.php?module=leJeu">Le Jeu</a>
 		</ul>
 		<ul>
-			<a href="index.php?module=2">Scores Mondiaux</a>
+			<a href="index.php?module=scoresMondiaux">Scores Mondiaux</a>
 		</ul>
 		<ul>
-			<a href="index.php?module=3">Les Tours</a>
+			<a href="index.php?module=lesTours">Les Tours</a>
 		</ul> 
 		<ul>
-			<a href="index.php?module=3">Mon Profil</a>
+			<a href="index.php?module=monProfil">Mon Profil</a>
 		</ul> 
 		<ul>
-			<a href="index.php?module=3">Inscription</a>
+			<a href="index.php?module=inscription">Inscription</a>
 		</ul> 
 		<ul>
-			<a href="index.php?module=3">Connexion</a>
+			<a href="index.php?module=connexion">Connexion</a>
 		</ul> 
 		<br>';
 	}
