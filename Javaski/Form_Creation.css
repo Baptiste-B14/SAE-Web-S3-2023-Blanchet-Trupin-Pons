@@ -1,14 +1,66 @@
 
+
+/*conteneurs de tout les champs à rentrer dans le formulaire*/
+.containerField{
+    display: flex; /* Utiliser un conteneur flexible pour aligner les enfants horizontalement */
+    align-items: center; /* met les enfant au centre de la largeur de la div*/
+}
+
+/*permet d'avoir un aspect alligné pour les input*/
+.divLabel{
+    width: 150px;
+}
+
+/*applique des règles à tous les enfants*/
+.containerField > *{
+    margin-right: 50px;
+}
+
 #pppreview {
-    width: 150px; /* Définir la largeur fixe */
-    height: 150px; /* Définir la hauteur fixe */
-    border-radius: 50%; /* Rendre l'image circulaire en utilisant une valeur de bordure égale à la moitié de la largeur/hauteur */
-    overflow: hidden; /* Cela assure que l'image ne dépasse pas les limites du cercle */
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; /* Rendre image circulaire */
+    overflow: hidden; /* image ne dépasse pas les limites du cercle */
+    background-color: blue;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
 }
   
 #pppreview img {
-    width: 100%; /* Assurer que l'image occupe 100% de la largeur du conteneur (cercle) */
-    height: 100%; /* Assurer que l'image occupe 100% de la hauteur du conteneur (cercle) */
-    object-fit: cover; /* Cela garantit que l'image est redimensionnée pour couvrir entièrement le conteneur */
-    border-radius: 50%; /* Vous pouvez également appliquer la bordure au cas où l'image serait rectangulaire */
+    width: 100%; /* pour que img soit a la taille du cercle*/
+    height: 100%; /* pour que img soit a la taille du cercle*/
+    object-fit: cover; /* au dessus cercle */
+    border-radius: 50%; /* pour que cercle si img rectange*/
 }
+
+h3{
+    font-size:small;
+}
+p{
+    font-size: smaller;
+}
+
+#messageMDP{
+    background-color: rgba(128, 128, 128, 0.258);
+    width: 350px; 
+    border-radius: 5%;
+    text-align: center;
+}
+
+/*quand validation restriction mdp = met le texte en vert*/
+.valid {
+    color: green;
+}
+  
+/*même principe que validation mais pour invalidation*/
+.invalid {
+    color: red;
+}
+
+/*le bouton est pas ouf même avec bootstrap*/
+/*input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+}*/  
+

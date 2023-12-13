@@ -21,18 +21,55 @@
         <script src="C:\Users\gaspa\OneDrive\Documents\cours BUT\SAE Javaski\GIT Site web\Site-Javaski\Javaski\Form_Creation.js"></script>
     
         <form> 
-            <label for="pp">Photo de Profil : </label> 
-            <br/>
-            <div class="containerPP">
-            <div id="pppreview" class="pp-preview"></div>
-            <input type="file" id="pp" name="pp" accept="image/*"> 
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="pp">Photo de Profil : </label> 
+                </div>
+                <!--cette div sert à stocker l'img quand selectionnée-->
+                <div id="pppreview" class="pp-preview"></div> 
+                <input type="file" id="pp" name="pp" accept="image/*"> 
             </div>
             <br/>  
-            <label for="prenom">Prénom: </label> 
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="pseudo">Username : </label> 
+                </div>
+                <input type="text" id="pseudo" name="pseudo"  title="un Username doit être choisi" required/> 
+            </div>
             <br/>  
-            <input type="text" id="prenom" name="prenom"/> 
-            <br/>  
-            <input type="submit" value="submit">  
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="mail">Adresse mail : </label> 
+                </div>
+                <input type="email" id="mail" name="mail" placeholder="exemple@gmail.com" title="une adresse mail valide doit être entrée" required/> 
+            </div>
+            <br/>
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="mdp">Mot de passe : </label> 
+                </div>
+                <!--l'attribut pattern s'assure de la validations des contraintes avant soumission du form-->
+                <input type="password" id="mdp" name="mdp" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="le champ doit répondre aux restrictions" required/> 
+            </div>
+
+            <div id="messageMDP">
+                <h3>le Mot de passe doit valider les restrictions suivantes : </h3>
+                <p id="letter" class="invalid">Une lettre <b>minuscule</b></p>
+                <p id="capital" class="invalid">Une lettre <b>majuscule</b></p>
+                <p id="number" class="invalid">Un <b>chiffre</b></p>
+                <p id="length" class="invalid">Au minimum <b>8 charactères</b></p>
+            </div>
+            <br/>
+
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="confirmmdp">Confirmation du Mot de passe : </label> 
+                </div>
+                <input type="password" id="confirmmdp" name="confirmmdp" title="une confirmation est necessaire" required/> 
+            </div>
+            <br/>
+            
+            <input type="submit" value="submit" id="submit">  
         </form>
 
     </body>
