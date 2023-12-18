@@ -14,7 +14,7 @@
 
                 /*----Pour le Fichier----*/ 
                 // SECURITE : extensions des fichiers autorisé = evite injection de script
-                $allowedFileTypes = ["jpg", "jpeg", "png", "gif"];
+                $allowedFileTypes = ["jpg", "jpeg", "png", "gif", "jfif"];
                 // Obtient l'extension du fichier
                 // pathinfo retourne les infos de chemin et PATHINFO_EXTENSION indique que l'ont veut l'extension 
                 // strtolower sert juste a mettre en minuscule pour s'assurer que l'ont puisse comparer avec notre liste d'extensions autorisées 
