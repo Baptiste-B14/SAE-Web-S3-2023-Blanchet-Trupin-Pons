@@ -15,17 +15,27 @@
 		
 
 		if (isset($_GET['module'])){
-			$module = empty($module) ? $_GET['module'] : 1;
+			$module = empty($module) ? $_GET['module'] : "leJeu";
 			switch($module){
-				case 1 : 
-					$test = new ModJoueurs();
+				case "leJeu" : 
+					$test = new ModJeu();
 					break;
-				case 2 : 
-					$test = new ModEquipes();
+				case "monProfil" : 
+					$test = new ModProfil();
 					break;
-				case 3 :
-					$test = new ModUtilisateurs();
+				case "scoresMondiaux" : 
+					$test = new ModScoresMondiaux();
 					break;
+				case "lesTours" : 
+					$test = new ModTours();
+					break;
+				case "inscription" : 
+					$test = new ModInscription();
+					break;
+				case "connexion" : 
+					$test = new ModConnexion();
+					break;
+				
 			}
 
 
