@@ -11,8 +11,36 @@
             if (isset($_POST["pseudo"])){
                 $bdd=Connexion::getbdd();
 
-                $query='INSERT INTO Utilisateur(pseudo, login, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :mail, :mdp, 0, :pp)';
 
+                /*----Pour le Fichier----*/ 
+                // SECURITE : extensions des fichiers autorisé = evite injection de script
+                $allowedFileTypes = ["jpg", "jpeg", "png", "gif"];
+                // Obtient l'extension du fichier
+                // pathinfo retourne les infos de chemin et PATHINFO_EXTENSION indique que l'ont veut l'extension 
+                // strtolower sert juste a mettre en minuscule pour s'assurer que l'ont puisse comparer avec notre liste d'extensions autorisées 
+                $fileExtension = strtolower(pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION));
+
+                // Vérifie si l'extension est autorisée
+                if (in_array($fileExtension, $allowedFileTypes)) {
+
+                $emplacement_temp = $_FILES['pp']['tmp_name'];
+                $nomFichier = 'PhotosProfil/' . $_FILES['pp']['name'];
+                move_uploaded_file($emplacement_temp, $nomFichier);
+                }
+                else{
+                    echo "Type de fichier non autorisé. Les types autorisés sont : " . implode(", ", $allowedFileTypes); 
+                    exit;               
+                }
+                /*----*/ 
+
+
+
+                $query='INSERT INTO Utilisateur(pseudo, login, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :mail, :mdp, 0, :pp)';
+                $prepare = $bdd->prepare($query);
+                // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
+                $prepare->execute(['user'=>htmlspecialchars($_POST["pseudo"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>htmlspecialchars($_POST["mdp"]), 'pp'=>$nomFichier]);
+                $rep= $prepare->fetchAll();
+                
             }
 
         }
