@@ -1,9 +1,13 @@
 
-
+body{
+    display: flex;
+    justify-content: center; /*met les enfants au centre de la largeur -> permet d'avoir le form au centre page*/
+    
+}
 /*conteneurs de tout les champs à rentrer dans le formulaire*/
 .containerField{
     display: flex; /* Utiliser un conteneur flexible pour aligner les enfants horizontalement */
-    align-items: center; /* met les enfant au centre de la largeur de la div*/
+    align-items: center; /* met les enfants au centre de la hauteur de la div -> utile pour photo de profil*/
 }
 
 /*permet d'avoir un aspect alligné pour les input*/
