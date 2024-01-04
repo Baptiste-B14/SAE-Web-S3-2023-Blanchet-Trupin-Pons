@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+    COMMENTAIRES GENERAUX
+
+    - attention aux \ dasn les arborescence fichier = correspond à windows
+    - pour l'instant il y a séparation des fichiers html et du php pour une meme page
+    - lien de la maquette : https://miro.com/app/board/uXjVNJJSWkw=/
+-->
+<!--
+    COMMENTAIRES SUR CE FICHIER
+
+    -le CSS est le même que celui de Form_Creation car il n'y a pas de diff de style entre les deux actuellement
+    -la connexion se fait actuellement avec une adresse mail  
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Form_Creation.css">
+    </head>
+    <body>
+        <script src="Form_Creation.js"></script>
+    
+        <form> 
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="mail">Adresse mail : </label> 
+                </div>
+                <input type="email" id="mail" name="mail" placeholder="exemple@gmail.com" title="une adresse mail valide doit être entrée" required/> 
+            </div>
+            <br/>
+            <div class="containerField">
+                <div class="divLabel">
+                    <label for="mdp">Mot de passe : </label> 
+                </div>
+                <input type="password" id="mdp" name="mdp" required/> 
+            </div>
+
+            <br/>
+            
+            <input type="submit" value="submit" id="submit">  
+        </form>
+
+    </body>
+</html>
