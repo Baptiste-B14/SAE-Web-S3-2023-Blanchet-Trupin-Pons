@@ -1,6 +1,17 @@
 <?php session_start(); ?>
 
 <?php  
+	session_start();
+
+
+	// SECURITE : pour eviter les fichiers externe
+	// comme tout passe par l'index, la declaration en sTe fait qu'ici
+	define('MY_APP', true);
+	if (!MY_APP){
+		die("Fichier externe détécté");
+	}
+
+	
 		include_once 'modules/mod_joueurs/mod_joueurs.php';
 		include_once 'modules/mod_equipes/mod_equipes.php';
 		include_once 'modules/mod_connexion/mod_connexion.php';

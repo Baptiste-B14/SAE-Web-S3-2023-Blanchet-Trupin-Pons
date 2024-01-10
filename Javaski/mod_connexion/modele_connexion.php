@@ -46,7 +46,34 @@
         }
 
         public function Connexion(){
-            
+                $bdd=connexion::getbdd();
+
+                $query= "SELECT * FROM Utilisateur WHERE login=:mail";
+                $prepare = $bdd->prepare($query);
+                $prepare->execute(['mail'=>$_POST["mail"]]);
+                $rep= $prepare->fetchAll();
+
+                if (!empty($rep)){
+                   $mdpUser = $_POST["mdp"];
+                   $mdpBD = $rep[0]["mdp"];
+
+                   if(password_verify($mdpUser,$mdpBD)){
+                        if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){
+                            echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
+                        }
+                        else {
+                            $_SESSION["login"] = $_POST["mail"];
+                            echo "Bienvenue ".$_SESSION["login"]."</br>";
+                        }
+                   }
+                   else {
+                        echo "pas de correspondance (erreur mdp)";
+                   }
+
+                }
+                else {
+                    echo "pas de correspondance (erreur login)";
+                }
         }
 
     }
