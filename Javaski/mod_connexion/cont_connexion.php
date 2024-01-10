@@ -19,7 +19,7 @@
             return $this->action;
         }
 
-        public function formulaire_creation(){
+        public function creation(){
             $this->vue->formCrea(); 
             $this->modele->CreerUser();
         }
@@ -29,28 +29,12 @@
         }
 
         public function connexion(){
-            // lacer formulaire de connexion
+            $this->vue->formCo(); 
+            $this->modele->Connexion();
         }
 
         public function deconnexion(){
             // formulaire de deconnexion
-        }
-
-        public function exec(){
-            $this->vue->menu();
-            switch ($this->action){
-                case "creation" :
-                    $this->bienvenue();
-                    break;  
-                case "connexion" :
-                    $this->connexion();
-                    break;
-                case "deconnexion" :
-                    $this->deconnexion();
-                    break;             
-               
-            }
-            
         }
 
         

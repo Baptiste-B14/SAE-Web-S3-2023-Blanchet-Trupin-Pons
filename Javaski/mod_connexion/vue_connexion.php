@@ -6,7 +6,7 @@
             parent::__construct();
         }
         
-        public function co(){
+        public function formCo(){
             include_once '..\Form\Form_Connexion.html';
         }
 
