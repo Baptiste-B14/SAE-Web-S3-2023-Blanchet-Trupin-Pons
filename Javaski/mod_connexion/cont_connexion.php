@@ -12,7 +12,11 @@
             $this->vue = new VueConnexion();
             $this->modele = new ModeleConnexion();
             // si $a est vide alors 'bienvenue', sinon il prend la valeur de $a
-            $this->action = !isset($_GET['action']) ? 'bienvenue' : $_GET['action'];
+            $this->action = !isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+        }
+
+        public function getAction() {
+            return $this->action;
         }
 
         public function formulaire_creation(){
@@ -33,11 +37,9 @@
         }
 
         public function exec(){
+            $this->vue->menu();
             switch ($this->action){
-                case "formulaire" :
-                    $this->formulaire_creation();
-                    break;
-                case "bienvenue" :
+                case "creation" :
                     $this->bienvenue();
                     break;  
                 case "connexion" :

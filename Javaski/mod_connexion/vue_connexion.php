@@ -7,15 +7,17 @@
         }
         
         public function co(){
-            // inclure le formulaire de connexion
+            include_once '..\Form\Form_Connexion.html';
         }
 
         public function formCrea(){
             include_once '..\Form\Form_Creation.html';
         }
 
+        // ce menu s'affiche en haut à droite du site 
         public function menu(){
-            // menu
+            echo "<a href='index.php?module=mod_connexion&action=connexion'>Se connecter</a>";
+            echo "<a href='index.php?module=mod_connexion&action=creation'>Creer un Compte</a>";
         }
 
         public function VueDeco(){

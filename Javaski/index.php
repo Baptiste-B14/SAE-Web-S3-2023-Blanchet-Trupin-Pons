@@ -3,7 +3,7 @@
 <?php  
 		include_once 'modules/mod_joueurs/mod_joueurs.php';
 		include_once 'modules/mod_equipes/mod_equipes.php';
-		include_once 'modules/mod_connexion/mod_utilisateurs.php';
+		include_once 'modules/mod_connexion/mod_connexion.php';
 		include_once 'composants/mod_menu.php';
 
 		

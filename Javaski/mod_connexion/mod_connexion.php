@@ -12,7 +12,20 @@
         }
 
         public function exec (){
-            $this->controleur->exec();
+            $action = $this->controleur->getAction();
+            switch ($this->action){
+                case "creation" :
+                    $this->controleur->creation();
+                    break;  
+                case "connexion" :
+                    $this->controleur->connexion();
+                    break;
+                // pas utilisé actuellement    
+                case "deconnexion" :
+                    $this->controleur->deconnexion();
+                    break;             
+               
+            }
         }
 
         public function affichage(){
