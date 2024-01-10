@@ -21,7 +21,7 @@
         }
 
         public function VueDeco(){
-            // vue deco
+            echo "<a href='index.php?module=mod_connexion&action=deconnexion'>Deconnexion</a>";
         }
 
     }

@@ -76,6 +76,16 @@
                 }
         }
 
+        public function Deconnexion(){
+            if (isset($_SESSION["login"])){
+                unset($_SESSION["login"]);
+                echo "deconnexion";
+            }
+            else{
+                echo "vous n'etes pas connecté";
+            }
+        }
+
     }
 
 

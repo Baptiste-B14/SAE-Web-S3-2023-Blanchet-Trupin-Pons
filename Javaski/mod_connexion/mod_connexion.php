@@ -8,6 +8,7 @@
 
         public function __construct(){
             $this->controleur = new ContConnexion();
+            $this->vue = new VueConnexion();
             $this->exec();
         }
 
@@ -28,8 +29,9 @@
             }
         }
 
+        // a revoir si ne marche pas : est normalement uitilisé par le tampon pour afficher le menu de co/deco/inscription
         public function affichage(){
-            return $this->controleur->affichage();
+            return $this->vue->affichage();
         }
     }
 

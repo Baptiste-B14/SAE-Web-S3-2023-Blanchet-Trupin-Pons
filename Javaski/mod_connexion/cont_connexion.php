@@ -34,7 +34,7 @@
         }
 
         public function deconnexion(){
-            // formulaire de deconnexion
+            $this->modele->Deconnexion();
         }
 
         
