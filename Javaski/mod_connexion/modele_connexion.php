@@ -29,7 +29,7 @@
                 // Obtient l'extension du fichier
                 // pathinfo retourne les infos de chemin et PATHINFO_EXTENSION indique que l'ont veut l'extension 
                 // strtolower sert juste a mettre en minuscule pour s'assurer que l'ont puisse comparer avec notre liste d'extensions autorisées 
-                $fileExtension = strtolower(pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION));
+                $fileExtension = strtolower(pathinfo($_FILES["pp"]["name"], PATHINFO_EXTENSION));
 
                 // Vérifie si l'extension est autorisée
                 if (in_array($fileExtension, $allowedFileTypes)) {
