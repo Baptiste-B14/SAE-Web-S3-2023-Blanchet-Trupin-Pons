@@ -20,6 +20,9 @@ class ContMenus{
 			return $this->vue->getAffichageMenuUtilisateur();
 		}
 	}
+	public function getModele(){
+		return $this->modele;
+	}
 }
 
 

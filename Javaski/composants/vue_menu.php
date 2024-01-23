@@ -5,9 +5,6 @@ class VueMenus {
   private $affichageMenuAdministrateur;
 	public function __construct() {
 		$this->affichageMenuUtilisateur = '
-		<div data-animation="default" data-collapse="all" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container shadow-three w-nav">
-      <div class="w-layout-blockcontainer w-container">
-        <div class="columns w-row">
           <div class="w-col w-col-2">
             <a href="index.php" class="navbar-brand w-nav-brand"><img src="images/Logo.png" loading="lazy" width="115" sizes="(max-width: 767px) 100vw, (max-width: 991px) 98px, 115px" alt="" srcset="images/Logo-p-500.png 500w, images/Logo-p-800.png 800w, images/Logo.png 907w"></a>
           </div>
@@ -26,14 +23,9 @@ class VueMenus {
           <div class="w-col w-col-2">
             <a href="#" class="button-2 w-button">Connexion</a>
           </div>
-        </div>
-      </div>
-    </div>';
+        ';
 
     $this->affichageMenuAdministrateur = '
-		<div data-animation="default" data-collapse="all" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container shadow-three w-nav">
-      <div class="w-layout-blockcontainer w-container">
-        <div class="columns w-row">
           <div class="w-col w-col-2">
             <a href="index.php" class="navbar-brand w-nav-brand"><img src="images/Logo.png" loading="lazy" width="115" sizes="(max-width: 767px) 100vw, (max-width: 991px) 98px, 115px" alt="" srcset="images/Logo-p-500.png 500w, images/Logo-p-800.png 800w, images/Logo.png 907w"></a>
           </div>
@@ -51,10 +43,7 @@ class VueMenus {
           </div>
           <div class="w-col w-col-2">
             <a href="#" class="button-2 w-button">Connexion</a>
-          </div>
-        </div>
-      </div>
-    </div>';
+          </div>';
 	}
 
 	public function getAffichageMenuUtilisateur(){
