@@ -38,7 +38,7 @@
                 $query='INSERT INTO Utilisateur(pseudo, login, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :mail, :mdp, 0, :pp)';
                 $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
-                $prepare->execute(['user'=>htmlspecialchars($_POST["pseudo"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>htmlspecialchars($_POST["mdp"]), 'pp'=>$nomFichier]);
+                $prepare->execute(['user'=>htmlspecialchars($_POST["pseudo"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier]);
                 $rep= $prepare->fetchAll();
                 
             }
