@@ -10,7 +10,6 @@
     COMMENTAIRES SUR CE FICHIER
 
     -le CSS est le même que celui de Form_Creation car il n'y a pas de diff de style entre les deux actuellement
-    -la connexion se fait actuellement avec une adresse mail ou un identifiant (théoriquement)  
 -->
 
 <html>
@@ -25,18 +24,11 @@
         <form action="..\index.php" method="post" enctype="multipart/form-data"> 
             <div class="containerField">
                 <div class="divLabel">
-                    <label for="mail">Adresse mail / Identifiant : </label> 
+                    <label for="fichier">Fichier de la Carte : </label> 
                 </div>
-                <input type="email" id="mail" name="mail" title="une adresse mail/ identifiant valide doit être entrée" required/> 
+                <input type="file" id="fichier" name="fichier" accept=".xls, .xlsx, .xlsm" required>
             </div>
-            <br/>
-            <div class="containerField">
-                <div class="divLabel">
-                    <label for="mdp">Mot de passe : </label> 
-                </div>
-                <input type="password" id="mdp" name="mdp" required/> 
-            </div>
-            <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+            <!--<input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">-->
 
             <br/>
             
