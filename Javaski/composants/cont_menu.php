@@ -9,12 +9,18 @@ class ContMenus{
 	private $modele;
 
 	public function __construct() {
-		$this->vue=new VueMenus();
 		$this->modele=new ModeleMenus();
+		if ($this->modele->userAdministrateur()){
+			$this->vue=new VueMenus();
+		}
 	}
 
 	public function getAffichageMenu(){
-		return $this->vue->getAffichageMenu();
+		if(isset($_SESSION["login"]) && $this->modele->userAdministrateur()){
+			return $this->vue->getAffichageMenuAdministrateur();
+		}else{
+			return $this->vue->getAffichageMenuUtilisateur();
+		}
 	}
 }
 
