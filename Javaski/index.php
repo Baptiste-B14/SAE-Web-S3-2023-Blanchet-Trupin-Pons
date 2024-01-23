@@ -16,39 +16,7 @@
        
        
         $compMenu = new ModMenus();
-       
-   
-/*
-        if (isset($_GET['module'])){
-            $module = empty($module) ? $_GET['module'] : "leJeu";
-            switch($module){
-                case "leJeu" :
-                    $test = new ModJeu();
-                    break;
-                case "monProfil" :
-                    $test = new ModProfil();
-                    break;
-                case "scoresMondiaux" :
-                    $test = new ModScoresMondiaux();
-                    break;
-                case "lesTours" :
-                    $test = new ModTours();
-                    break;
-                case "inscription" :
-                    $test = new ModInscription();
-                    break;
-                case "connexion" :
-                    $test = new ModConnexion();
-                    break;
-               
-            }
-
-            $affichageModule = $test->getControleur()->getVue()->getAffichage();
-           
-
-        }
-        $module = isset($_GET['module']) ? $_GET['module'] : 'attente';
- */
+		
         if (isset($_GET['module'])){
             switch ($_GET["module"]){
                 case ("leJeu") :
