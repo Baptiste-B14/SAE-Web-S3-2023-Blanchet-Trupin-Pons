@@ -24,6 +24,13 @@
         <form action="..\index.php" method="post" enctype="multipart/form-data"> 
             <div class="containerField">
                 <div class="divLabel">
+                    <label for="nom">Nom de la Carte : </label> 
+                </div>
+                <input type="text" id="nom" name="nom" placeholder="ma_superbe_map" required>
+            </div>
+            </br>
+            <div class="containerField">
+                <div class="divLabel">
                     <label for="fichier">Fichier de la Carte : </label> 
                 </div>
                 <input type="file" id="fichier" name="fichier" accept=".xls, .xlsx, .xlsm" required>
@@ -37,3 +44,51 @@
 
     </body>
 </html>
+
+
+<!--
+    - A mettre dans une fonction gerant l'envoi de ce form à la BD
+    - ATTENTION : penser a creer un fichier pour stocker les fichier .xls/m/x (voir nom dans le code en dessous)
+-->
+<!--
+    // TO DO : trouver meilleure facon de voir si form ok ? 
+            if (isset($_POST["fichier"])){
+                $bdd=Connexion::getbdd();
+
+                // Securite = verif conformiter token du fichier et du formulaire 
+                if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                    // Token non valide = traitement erreur
+                    echo"Token CSRF non valide. Requete suspecte !";
+                    exit;
+                }
+
+
+                /*----Pour le Fichier----*/ 
+                // SECURITE : extensions des fichiers autorisé = evite injection de script
+                $allowedFileTypes = ["xls", "xlsx", "xlsm"];
+                // Obtient l'extension du fichier
+                // pathinfo retourne les infos de chemin et PATHINFO_EXTENSION indique que l'ont veut l'extension 
+                // strtolower sert juste a mettre en minuscule pour s'assurer que l'ont puisse comparer avec notre liste d'extensions autorisées 
+                $fileExtension = strtolower(pathinfo($_FILES["fichier"]["name"], PATHINFO_EXTENSION));
+
+                // Vérifie si l'extension est autorisée
+                if (in_array($fileExtension, $allowedFileTypes)) {
+
+                $emplacement_temp = $_FILES['fichier']['tmp_name'];
+                $nomFichier = 'FichierCarte/' . $_FILES['fichier']['name'];
+                move_uploaded_file($emplacement_temp, $nomFichier);
+                }
+                else{
+                    echo "Type de fichier non autorisé. Les types autorisés sont : " . implode(", ", $allowedFileTypes); 
+                    exit;               
+                }
+                /*----*/ 
+
+
+
+                $query='INSERT INTO map(nom, cheminVersFichier) VALUES (:nom, :fichier)';
+                $prepare = $bdd->prepare($query);
+                // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
+                $prepare->execute(['nom'=>htmlspecialchars($_POST["nom"]), 'fichier'=>$nomFichier]);
+                $rep= $prepare->fetchAll();
+-->
