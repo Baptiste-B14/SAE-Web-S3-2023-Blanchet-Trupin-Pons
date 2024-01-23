@@ -3,7 +3,7 @@
 include_once 'modules/mod_lesTours/cont_lesTours.php';
 
 
-class ModJeu{
+class ModTours{
 	private $action;
 	private $controleur;
 	public function __construct() {

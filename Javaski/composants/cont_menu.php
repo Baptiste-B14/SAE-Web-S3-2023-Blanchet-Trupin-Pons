@@ -10,9 +10,7 @@ class ContMenus{
 
 	public function __construct() {
 		$this->modele=new ModeleMenus();
-		if ($this->modele->userAdministrateur()){
-			$this->vue=new VueMenus();
-		}
+		$this->vue= new VueMenus();
 	}
 
 	public function getAffichageMenu(){

@@ -3,7 +3,7 @@
 include_once 'modules/mod_scoresMondiaux/cont_scoresMondiaux.php';
 
 
-class ModJeu{
+class ModScoresMondiaux{
 	private $action;
 	private $controleur;
 	public function __construct() {

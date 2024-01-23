@@ -13,6 +13,7 @@
         include_once 'modules/mod_scoresMondiaux/mod_scoresMondiaux.php';
         include_once 'modules/mod_lesTours/mod_lesTours.php';
         include_once 'composants/mod_menu.php';
+        include_once 'mod_connexion/mod_connexion.php';
        
        
         $compMenu = new ModMenus();
@@ -30,6 +31,10 @@
                 case ("module3") :
                     //connexion::initConnexion();
                     $m = new ModScoresMondiaux();
+                    break;
+                case ("connexion") :
+                    //connexion::initConnexion();
+                    $m = new ModConnexion();
                     break;
                 default :
                     die("Module inconnu");
