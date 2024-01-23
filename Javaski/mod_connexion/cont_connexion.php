@@ -22,7 +22,7 @@
 
             switch ($this->action){
                 case "creation" :
-                    $this->controleur->creation();
+                    $this->creation();
                     break;  
                 case "connexion" :
                     $this->controleur->connexion();
