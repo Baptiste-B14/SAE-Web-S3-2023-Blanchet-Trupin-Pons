@@ -17,18 +17,21 @@
 	<header> 
 	</header>
 	<body class = "body">
+		
+
 		<?php
 			
 			if (empty($_SESSION["login"])){
 				echo $compMenu->affiche();
-				echo '<br><a href="index.php?module=connexion&action=formConnexion">formulaire connexion </a><br>';
+				echo '<br><a href="index.php?module=mod_connexion&action=formConnexion">formulaire connexion </a><br>';
 			}else{
 				echo $compMenu->affiche();
-				echo '<br><br><a href="index.php?module=connexion&action=deconnexion">deconnexion </a><br>';
+				echo '<br><br><a href="index.php?module=mod_connexion&action=deconnexion">deconnexion </a><br>';
 			}
 			echo $affichageModule;
 
 		?>
+		</section>
 	</body>
 	<footer>
 		<?php

@@ -20,19 +20,19 @@
 		
         if (isset($_GET['module'])){
             switch ($_GET["module"]){
-                case ("leJeu") :
+                case ("mod_jeu") :
                     //connexion::initConnexion();
                     $m = new ModJeu();
                     break;
-                case ("monProfil") :
+                case ("mod_profil") :
                     //connexion::initConnexion();
                     $m = new ModProfil();
                     break;
-                case ("module3") :
+                case ("mod_scores") :
                     //connexion::initConnexion();
                     $m = new ModScoresMondiaux();
                     break;
-                case ("connexion") :
+                case ("mod_connexion") :
                     //connexion::initConnexion();
                     $m = new ModConnexion();
                     break;

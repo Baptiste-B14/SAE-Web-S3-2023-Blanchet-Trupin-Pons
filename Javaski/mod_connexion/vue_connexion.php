@@ -2,8 +2,8 @@
     if (!MY_APP){
         die("Fichier externe détécté");
     }
-    include_once '/home/etudiants/info/gpons/local_html/MVC3/module/vue_generique.php';
-    class VueConnexion /*extends VueGenerique*/{
+    include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
+    class VueConnexion extends VueGenerique{
         //le constructeur
         public function __construct (){
             parent::__construct();

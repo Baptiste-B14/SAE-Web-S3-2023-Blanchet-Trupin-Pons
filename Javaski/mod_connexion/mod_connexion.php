@@ -16,7 +16,7 @@
 
         public function exec (){
             $action = $this->controleur->getAction();
-            switch ($this->action){
+            switch ($action){
                 case "creation" :
                     $this->controleur->creation();
                     break;  
@@ -32,8 +32,8 @@
         }
 
         // a revoir si ne marche pas : est normalement uitilisé par le tampon pour afficher le menu de co/deco/inscription
-        public function affichage(){
-            return $this->vue->affichage();
+        public function affiche(){
+            return $this->vue->menu();
         }
     }
 

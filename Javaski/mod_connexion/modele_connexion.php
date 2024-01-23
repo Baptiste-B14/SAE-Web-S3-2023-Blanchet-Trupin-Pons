@@ -2,8 +2,8 @@
     if (!MY_APP){
         die("Fichier externe détécté");
     }
-    include_once '..\connexion.php';
-
+    include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
+    include_once 'C:\wamp64\www\Site-Javaski\Javaski\connexion.php';
 
     class ModeleConnexion extends Connexion{
         public function __construct(){
