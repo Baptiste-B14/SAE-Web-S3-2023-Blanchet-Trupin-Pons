@@ -21,13 +21,12 @@
 			
 			if (empty($_SESSION["login"])){
 				echo $compMenu->affiche();
-				echo $affichageModule;
 				echo '<br><a href="index.php?module=3&action=formConnexion">formulaire connexion </a><br>';
 			}else{
 				echo $compMenu->affiche();
-				echo $affichageModule;
 				echo '<br><br><a href="index.php?module=3&action=deconnexion">deconnexion </a><br>';
 			}
+			echo $affichageModule;
 
 		?>
 	</body>
