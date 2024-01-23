@@ -14,8 +14,25 @@
         public function __construct (){
             $this->vue = new VueConnexion();
             $this->modele = new ModeleConnexion();
+        }
+
+        public function exec (){
             // si $a est vide alors 'bienvenue', sinon il prend la valeur de $a
             $this->action = !isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+
+            switch ($this->$action){
+                case "creation" :
+                    $this->controleur->creation();
+                    break;  
+                case "connexion" :
+                    $this->controleur->connexion();
+                    break;
+                // pas utilisé actuellement    
+                case "deconnexion" :
+                    $this->controleur->deconnexion();
+                    break;             
+               
+            }
         }
 
         public function getAction() {
