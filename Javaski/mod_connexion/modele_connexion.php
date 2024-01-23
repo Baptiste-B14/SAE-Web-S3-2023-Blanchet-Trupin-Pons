@@ -1,5 +1,9 @@
 <?php
+    if (!MY_APP){
+        die("Fichier externe détécté");
+    }
     include_once '..\connexion.php';
+
 
     class ModeleConnexion extends Connexion{
         public function __construct(){
@@ -10,6 +14,13 @@
             // TO DO : trouver meilleure facon de voir si form ok ? 
             if (isset($_POST["pseudo"])){
                 $bdd=Connexion::getbdd();
+
+                // Securite = verif conformiter token du fichier et du formulaire 
+                if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                    // Token non valide = traitement erreur
+                    echo"Token CSRF non valide. Requete suspecte !";
+                    exit;
+                }
 
 
                 /*----Pour le Fichier----*/ 
@@ -47,6 +58,13 @@
 
         public function Connexion(){
                 $bdd=connexion::getbdd();
+                
+                // Securite = verif conformiter token du fichier et du formulaire 
+                if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                    // Token non valide = traitement erreur
+                    echo"Token CSRF non valide. Requete suspecte !";
+                    exit;
+                }
 
                 $query= "SELECT * FROM Utilisateur WHERE login=:mail";
                 $prepare = $bdd->prepare($query);

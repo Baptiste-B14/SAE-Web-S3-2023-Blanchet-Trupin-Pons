@@ -1,5 +1,7 @@
 <?php
-
+    if (!MY_APP){
+        die("Fichier externe détécté");
+    }
     include_once 'cont_connexion.php';
     include_once 'connexion.php';
 

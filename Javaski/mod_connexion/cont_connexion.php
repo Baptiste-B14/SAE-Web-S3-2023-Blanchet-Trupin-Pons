@@ -1,4 +1,7 @@
 <?php
+    if (!MY_APP){
+        die("Fichier externe détécté");
+    }
     
     include_once 'vue_connexion.php';
     include_once 'modele_connexion.php';

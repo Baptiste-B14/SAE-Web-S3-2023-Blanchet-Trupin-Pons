@@ -1,4 +1,7 @@
 <?php
+    if (!MY_APP){
+        die("Fichier externe détécté");
+    }
     include_once '/home/etudiants/info/gpons/local_html/MVC3/module/vue_generique.php';
     class VueConnexion /*extends VueGenerique*/{
         //le constructeur
@@ -7,10 +10,22 @@
         }
         
         public function formCo(){
+            // Securite : generation token 
+            if(!isset($_SESSION['csrf_token'])){
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
+            }
+            $csrfToken = $_SESSION['csrf_token'];
+
             include_once '..\Form\Form_Connexion.html';
         }
 
         public function formCrea(){
+            // Securite : generation token
+            if(!isset($_SESSION['csrf_token'])){
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
+            }
+            $csrfToken = $_SESSION['csrf_token'];
+
             include_once '..\Form\Form_Creation.html';
         }
 
