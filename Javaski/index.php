@@ -44,6 +44,8 @@
            
             $m = new ModJeu();
         }
+
+		$m->exec();
        
         $affichageModule = $m->affiche();
         include_once 'template.php';
