@@ -20,7 +20,7 @@
             // si $a est vide alors 'bienvenue', sinon il prend la valeur de $a
             $this->action = !isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
 
-            switch ($this->$action){
+            switch ($this->action){
                 case "creation" :
                     $this->controleur->creation();
                     break;  
@@ -30,7 +30,10 @@
                 // pas utilisé actuellement    
                 case "deconnexion" :
                     $this->controleur->deconnexion();
-                    break;             
+                    break;    
+                case "bienvenue" : 
+                    echo "bienvenue fdp";
+                    break;         
                
             }
         }
