@@ -10,7 +10,7 @@ class ModeleMenus{
 	public function userAdministrateur(){
 		if(isset($_SESSION["login"])){
 			$bdd=connexion::getbdd();
-			$query= "SELECT * FROM admin WHERE login=:sessionLogin";
+			$query= "SELECT * FROM admin WHERE identifiant=:sessionLogin";
         	$prepare = $bdd->prepare($query);
         	$prepare->execute(['sessionLogin'=>$_SESSION["login"]]);
     		$rep= $prepare->fetchAll();

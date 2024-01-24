@@ -12,9 +12,11 @@
         }
 
         public function CreerUser(){
+            
             // TO DO : trouver meilleure facon de voir si form ok ? 
             if (isset($_POST["id"])){
-                $bdd=Connexion::getbdd();
+                 
+                $bdd= $this->getbdd();
 
                 // Securite = verif conformiter token du fichier et du formulaire 
                 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
@@ -36,7 +38,7 @@
                 if (in_array($fileExtension, $allowedFileTypes)) {
 
                 $emplacement_temp = $_FILES['pp']['tmp_name'];
-                $nomFichier = 'PhotosProfil/' . $_FILES['pp']['name'];
+                $nomFichier = 'C:\wamp64\www\Site-Javaski\Javaski\mod_connexion\PhotosProfil\ ' . $_FILES['pp']['name'];
                 move_uploaded_file($emplacement_temp, $nomFichier);
                 }
                 else{
@@ -58,7 +60,7 @@
         }
 
         public function Connexion(){
-                $bdd=connexion::getbdd();
+                $bdd=$this->getbdd();
                 
         // Securite = verif conformiter token du fichier et du formulaire 
                 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
@@ -74,7 +76,7 @@
 
                 if (!empty($rep)){
                    $mdpUser = $_POST["mdp"];
-                   $mdpBD = $rep[0]["mdp"];
+                   $mdpBD = $rep[0]["motdepasse"];
 
                    if(password_verify($mdpUser,$mdpBD)){
                         if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){

@@ -22,7 +22,7 @@
 
             switch ($this->action){
                 case "creation" :
-                    $this->controleur->creation();
+                    $this->creation();
                     break;  
                 case "connexion" :
                     $this->connexion();
@@ -34,9 +34,18 @@
                     break;    
                 case "bienvenue" : 
                     echo "bienvenue fdp";
-                    break;         
-               
+                    break;
+                case "creerUser";
+                    $this->creerUser();
+                    break;
+                case "connectUser";
+                    $this->connectUser();
+                    break;               
             }
+        }
+
+        public function creerUser(){
+            $this->modele->CreerUser();
         }
 
         public function getAction() {
@@ -45,7 +54,6 @@
 
         public function creation(){
             $this->vue->formCrea(); 
-            $this->modele->CreerUser();
         }
 
         public function bienvenue(){
@@ -54,11 +62,14 @@
 
         public function connexion(){
             $this->vue->formCo(); 
-            $this->modele->Connexion();
         }
 
         public function deconnexion(){
             $this->modele->Deconnexion();
+        }
+
+        public function connectUser(){
+            $this->modele->Connexion();
         }
 
         
