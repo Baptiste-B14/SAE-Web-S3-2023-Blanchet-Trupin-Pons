@@ -21,16 +21,22 @@
             $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
 
             switch ($this->action){
-                case "creation" :
-                    $this->creation();
+                case "formCreation" :
+                    $this->vue->afficherCreation();
                     break;  
-                case "connexion" :
-                    $this->connexion();
+                case "formConnexion" :
+                    $this->vue->afficherConnexion();
                     break;
                 // pas utilisé actuellement    
                 case "deconnexion" :
                     $this->deconnexion();
-                    break;    
+                    break;  
+                case "creation"  :
+                    $this->creation();
+                    break;
+                case "connexion" :
+                    $this->connexion();
+                    break;
                 case "bienvenue" : 
                     echo "bienvenue";
                     break;        
@@ -55,7 +61,8 @@
         }
 
         public function getAffichage(){
-         
+            return '';
+            /** 
             $this->action = isset($_GET['action']) ? $_GET['action'] : 'connexion';
             switch ($this->action){
                 case "creation" :
@@ -65,7 +72,7 @@
                     return $this->vue->getAffichageConnexion();
                     break;  
             }
-        
+            */
         }
 
 

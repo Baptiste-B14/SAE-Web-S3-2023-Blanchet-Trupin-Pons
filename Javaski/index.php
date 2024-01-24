@@ -44,7 +44,7 @@
            
             $m = new ModJeu();
         }
-
+        
 		$m->exec();
        
         $affichageModule = $m->affiche();

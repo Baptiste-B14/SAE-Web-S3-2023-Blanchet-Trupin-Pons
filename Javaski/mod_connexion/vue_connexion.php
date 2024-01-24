@@ -7,9 +7,10 @@
         //le constructeur
         public function __construct (){
             parent::__construct();
+            
         }
         
-        public function getAffichageConnexion(){
+        public function afficherConnexion(){
             
             // Securite : generation token 
             if(!isset($_SESSION['csrf_token'])){
@@ -17,7 +18,7 @@
             }
             $csrfToken = $_SESSION['csrf_token'];
             
-            return '<script src="Form_Creation.js"></script>
+            echo '<script src="Form_Creation.js"></script>
             <form action="index.php?module=mod_connexion&action=connexion" method="post" enctype="multipart/form-data"> 
                 <div class="containerField">
                     <div class="divLabel">
@@ -41,14 +42,14 @@
 
         }
 
-        public function getAffichageCreation(){
+        public function afficherCreation(){
             //Securite : generation token
             if(!isset($_SESSION['csrf_token'])){
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
             }
             $csrfToken = $_SESSION['csrf_token'];
 
-            return '<!--Scripts JS nécessaire à bootstrap
+            echo '<!--Scripts JS nécessaire à bootstrap
         <script src="bootstrap-4.4.1-dist\js\jquery-3.4.1.min.js"></script>
         <script src="bootstrap-4.4.1-dist\js\bootstrap.js"></script>-->
         <script src="Form_Creation.js"></script>
@@ -108,7 +109,7 @@
         </form>';
         
         }
-        
+        /** 
         // ce menu s'affiche en haut à droite du site 
         public function menu(){
             echo "<a href='index.php?module=mod_connexion&action=connexion'>Se connecter</a>";
@@ -118,7 +119,7 @@
         public function VueDeco(){
             echo "<a href='index.php?module=mod_connexion&action=deconnexion'>Deconnexion</a>";
         }
-        
+        */
     }
 
 

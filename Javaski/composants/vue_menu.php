@@ -21,7 +21,7 @@ class VueMenus {
             <a href="index.php?module=mod_profil" class="button-2 w-button">Mon Profil</a>
           </div>
           <div class="w-col w-col-2">
-            <a href="index.php?module=mod_connexion&action=connexion" class="button-2 w-button">Connexion</a>
+            <a href="index.php?module=mod_connexion&action=formConnexion" class="button-2 w-button">Connexion</a>
           </div>
         ';
 
@@ -42,7 +42,7 @@ class VueMenus {
             <a href="index.php?module=mod_profil" class="button-2 w-button">Mon Profil</a>
           </div>
           <div class="w-col w-col-2">
-            <a href="index.php?module=mod_connexion&action=connexion" class="button-2 w-button">Connexion</a>
+            <a href="index.php?module=mod_connexion&action=formConnexion" class="button-2 w-button">Connexion</a>
           </div>';
 	}
 
