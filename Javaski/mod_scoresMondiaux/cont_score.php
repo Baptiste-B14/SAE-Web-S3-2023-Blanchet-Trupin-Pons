@@ -27,6 +27,9 @@
                 case "form_XLS" :   
                     $this->formMap();                 
                     break; 
+                case "post_XLS" : 
+                    $this->post();
+                    break;
                 default :
                     die ("action inexistante");           
             }
@@ -47,7 +50,11 @@
         }
 
         public function formMap(){
-            
+            $this->vue->afficherFormXLS();
+        }
+
+        public function post(){
+            $this->modele->post_BD();
         }
 
         

@@ -74,6 +74,38 @@
             <?
         }
 
+        function afficherFormXLS(){
+            //Securite : generation token
+            if(!isset($_SESSION['csrf_token'])){
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
+            }
+            $csrfToken = $_SESSION['csrf_token'];
+
+            echo '<script src="Form_Creation.js"></script>
+    
+            <form action="index.php?module=mod_scores&action=post_XLS" method="post" enctype="multipart/form-data"> 
+                <div class="containerField">
+                    <div class="divLabel">
+                        <label for="nom">Nom de la Carte : </label> 
+                    </div>
+                    <input type="text" id="nom" name="nom" placeholder="ma_superbe_map" required>
+                </div>
+                </br>
+                <div class="containerField">
+                    <div class="divLabel">
+                        <label for="fichier">Fichier de la Carte : </label> 
+                    </div>
+                    <input type="file" id="fichier" name="fichier" accept=".xls, .xlsx, .xlsm" required>
+                </div>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+    
+                <br/>
+                
+                <input type="submit" value="submit" id="submit">  
+            </form>
+            ';
+        }
+
 
 
     }
