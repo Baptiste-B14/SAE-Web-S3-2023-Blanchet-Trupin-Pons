@@ -1,12 +1,13 @@
 <?php
     if (!MY_APP){
-        die("Fichier externe détécté");
+        die("Fichier externe détecté");
     }
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\connexion.php';
 
     class ModeleConnexion extends Connexion{
         public function __construct(){
+            parent::initConnexion();
             // vide actuellement
         }
 
@@ -47,7 +48,7 @@
 
 
                 $query='INSERT INTO joueur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
-                $prepare = $bdd->prepare($query);
+                                  $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
                 $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier]);
                 $rep= $prepare->fetchAll();
@@ -59,7 +60,7 @@
         public function Connexion(){
                 $bdd=connexion::getbdd();
                 
-                // Securite = verif conformiter token du fichier et du formulaire 
+        // Securite = verif conformiter token du fichier et du formulaire 
                 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
                     // Token non valide = traitement erreur
                     echo"Token CSRF non valide. Requete suspecte !";

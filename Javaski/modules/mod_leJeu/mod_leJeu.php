@@ -12,7 +12,9 @@ class ModJeu{
 	
 	public function affiche(){return $this->controleur->getAffichageJeu();}
 	
-
+	public function exec(){
+		
+	}
 }
 
 ?>

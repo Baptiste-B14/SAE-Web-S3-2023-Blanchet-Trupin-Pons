@@ -16,7 +16,7 @@
             }
             $csrfToken = $_SESSION['csrf_token'];
 
-            include_once '..\Form\Form_Connexion.html';
+            include_once 'C:\wamp64\www\Site-Javaski\Javaski\Form\Form_Connexion.html';
         }
 
         public function formCrea(){
@@ -26,7 +26,7 @@
             }
             $csrfToken = $_SESSION['csrf_token'];
 
-            include_once '..\Form\Form_Creation.html';
+            include_once 'C:\wamp64\www\Site-Javaski\Javaski\Form\Form_Creation.html';
         }
 
         // ce menu s'affiche en haut à droite du site 
