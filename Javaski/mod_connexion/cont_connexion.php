@@ -26,7 +26,6 @@
                     break;  
                 case "connexion" :
                     $this->connexion();
-                    
                     break;
                 // pas utilisé actuellement    
                 case "deconnexion" :

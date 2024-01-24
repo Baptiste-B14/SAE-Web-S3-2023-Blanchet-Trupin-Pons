@@ -49,7 +49,7 @@
 
 
 
-                $query='INSERT INTO joueur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
+                $query='INSERT INTO utilisateur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
                                   $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
                 $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier]);
@@ -69,7 +69,7 @@
                     exit;
                 }
 
-                $query= "SELECT * FROM joueur WHERE courriel=:mail";
+                $query= "SELECT * FROM utilisateur WHERE courriel=:mail";
                 $prepare = $bdd->prepare($query);
                 $prepare->execute(['mail'=>$_POST["mail"]]);
                 $rep= $prepare->fetchAll();
@@ -94,7 +94,7 @@
                 }
                 else {
                     // si mail ne donne rien, on teste avec identifiant
-                    $query= "SELECT * FROM joueur WHERE identifiant=:mail";
+                    $query= "SELECT * FROM utilisateur WHERE idUtilisateur=:mail";
                     $prepare = $bdd->prepare($query);
                     $prepare->execute(['mail'=>$_POST["mail"]]);
                     $rep= $prepare->fetchAll();
