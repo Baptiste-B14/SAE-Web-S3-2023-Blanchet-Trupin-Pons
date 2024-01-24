@@ -3,17 +3,17 @@
         die("Fichier externe détécté");
     }
     
-    include_once 'vue_connexion.php';
-    include_once 'modele_connexion.php';
+    include_once 'vue_score.php';
+    include_once 'modele_score.php';
 
-    class ContConnexion{
+    class ContScore{
         private $vue;
         private $modele;
         private $action;
 
         public function __construct (){
-            $this->vue = new VueConnexion();
-            $this->modele = new ModeleConnexion();
+            $this->vue = new VueScore();
+            $this->modele = new ModeleScore();
         }
 
         public function exec (){
@@ -22,53 +22,26 @@
 
             switch ($this->action){
                 case "creation" :
-                    $this->creation();
                     break;  
-                case "connexion" :
-                    $this->connexion();
+                case "connexion" :                    
                     break;
-                // pas utilisé actuellement    
                 case "deconnexion" :
-                    $this->deconnexion();
                     break;    
                 case "bienvenue" : 
-                    echo "bienvenue fdp";
                     break;
                 case "creerUser";
-                    $this->creerUser();
                     break;
                 case "connectUser";
-                    $this->connectUser();
                     break;               
             }
-        }
-
-        public function creerUser(){
-            $this->modele->CreerUser();
         }
 
         public function getAction() {
             return $this->action;
         }
 
-        public function creation(){
-            $this->vue->formCrea(); 
-        }
-
         public function bienvenue(){
             // mettre un msg de bienvenue quand SESSION validée 
-        }
-
-        public function connexion(){
-            $this->vue->formCo(); 
-        }
-
-        public function deconnexion(){
-            $this->modele->Deconnexion();
-        }
-
-        public function connectUser(){
-            $this->modele->Connexion();
         }
 
         

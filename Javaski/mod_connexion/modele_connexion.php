@@ -49,10 +49,10 @@
 
 
 
-                $query='INSERT INTO joueur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
-                                  $prepare = $bdd->prepare($query);
+                $query='INSERT INTO utilisateur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto, droits) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
+                $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
-                $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier]);
+                $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier, 'droits'=>false]);
                 $rep= $prepare->fetchAll();
                 
             }
@@ -69,7 +69,7 @@
                     exit;
                 }
 
-                $query= "SELECT * FROM joueur WHERE courriel=:mail";
+                $query= "SELECT * FROM utilisateur WHERE courriel=:mail";
                 $prepare = $bdd->prepare($query);
                 $prepare->execute(['mail'=>$_POST["mail"]]);
                 $rep= $prepare->fetchAll();
@@ -83,7 +83,7 @@
                             echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                         }
                         else {
-                            $_SESSION["login"] = $rep[0]["identifiant"];
+                            $_SESSION["login"] = $_POST["mail"];
                             echo "Bienvenue ".$_SESSION["login"]."</br>";
                         }
                    }
@@ -94,7 +94,7 @@
                 }
                 else {
                     // si mail ne donne rien, on teste avec identifiant
-                    $query= "SELECT * FROM joueur WHERE identifiant=:mail";
+                    $query= "SELECT * FROM utilisateur WHERE identifiant=:mail";
                     $prepare = $bdd->prepare($query);
                     $prepare->execute(['mail'=>$_POST["mail"]]);
                     $rep= $prepare->fetchAll();
@@ -108,7 +108,7 @@
                                 echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                             }
                             else {
-                                $_SESSION["login"] = $rep[0]["identifiant"];
+                                $_SESSION["login"] = $_POST["mail"];
                                 echo "Bienvenue ".$_SESSION["login"]."</br>";
                             }
                         }
