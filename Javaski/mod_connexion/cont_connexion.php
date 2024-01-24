@@ -18,24 +18,34 @@
 
         public function exec (){
             // si $a est vide alors 'bienvenue', sinon il prend la valeur de $a
-            $this->action = !isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
 
             switch ($this->action){
                 case "creation" :
                     $this->creation();
                     break;  
                 case "connexion" :
-                    $this->controleur->connexion();
+                    $this->connexion();
+                    
                     break;
                 // pas utilisé actuellement    
                 case "deconnexion" :
-                    $this->controleur->deconnexion();
+                    $this->deconnexion();
                     break;    
                 case "bienvenue" : 
                     echo "bienvenue fdp";
-                    break;         
-               
+                    break;
+                case "creerUser";
+                    $this->creerUser();
+                    break;
+                case "connectUser";
+                    $this->connectUser();
+                    break;               
             }
+        }
+
+        public function creerUser(){
+            $this->modele->CreerUser();
         }
 
         public function getAction() {
@@ -44,7 +54,6 @@
 
         public function creation(){
             $this->vue->formCrea(); 
-            $this->modele->CreerUser();
         }
 
         public function bienvenue(){
@@ -53,11 +62,14 @@
 
         public function connexion(){
             $this->vue->formCo(); 
-            $this->modele->Connexion();
         }
 
         public function deconnexion(){
             $this->modele->Deconnexion();
+        }
+
+        public function connectUser(){
+            $this->modele->Connexion();
         }
 
         

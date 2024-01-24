@@ -1,19 +1,22 @@
 <?php
     if (!MY_APP){
-        die("Fichier externe détécté");
+        die("Fichier externe détecté");
     }
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\connexion.php';
 
     class ModeleConnexion extends Connexion{
         public function __construct(){
+            parent::initConnexion();
             // vide actuellement
         }
 
         public function CreerUser(){
+            
             // TO DO : trouver meilleure facon de voir si form ok ? 
             if (isset($_POST["id"])){
-                $bdd=Connexion::getbdd();
+                 
+                $bdd= $this->getbdd();
 
                 // Securite = verif conformiter token du fichier et du formulaire 
                 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
@@ -35,7 +38,7 @@
                 if (in_array($fileExtension, $allowedFileTypes)) {
 
                 $emplacement_temp = $_FILES['pp']['tmp_name'];
-                $nomFichier = 'PhotosProfil/' . $_FILES['pp']['name'];
+                $nomFichier = 'C:\wamp64\www\Site-Javaski\Javaski\mod_connexion\PhotosProfil\ ' . $_FILES['pp']['name'];
                 move_uploaded_file($emplacement_temp, $nomFichier);
                 }
                 else{
@@ -47,7 +50,7 @@
 
 
                 $query='INSERT INTO joueur(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto) VALUES (:user, :user, :mail, :mdp, 0, :pp)';
-                $prepare = $bdd->prepare($query);
+                                  $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
                 $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier]);
                 $rep= $prepare->fetchAll();
@@ -57,9 +60,9 @@
         }
 
         public function Connexion(){
-                $bdd=connexion::getbdd();
+                $bdd=$this->getbdd();
                 
-                // Securite = verif conformiter token du fichier et du formulaire 
+        // Securite = verif conformiter token du fichier et du formulaire 
                 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
                     // Token non valide = traitement erreur
                     echo"Token CSRF non valide. Requete suspecte !";
@@ -73,7 +76,7 @@
 
                 if (!empty($rep)){
                    $mdpUser = $_POST["mdp"];
-                   $mdpBD = $rep[0]["mdp"];
+                   $mdpBD = $rep[0]["motdepasse"];
 
                    if(password_verify($mdpUser,$mdpBD)){
                         if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){

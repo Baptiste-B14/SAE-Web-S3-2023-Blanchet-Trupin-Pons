@@ -5,7 +5,12 @@ class Connexion{
 	protected static $bdd;
 
 	public static function initConnexion(){
-		self::$bdd = new PDO('mysql:dbname=dutinfopw201621;host=database-etudiants.iut.univ-paris8.fr', 'dutinfopw201621', 'batypyzu');
+		try{
+				self::$bdd = new PDO('mysql:host=localhost;dbname=javaski', 'root', '');
+				echo 'connecté';
+			}catch(PDOException $err){
+				echo 'Erreur de connection : '. $err->getMessage();
+		}
 	}
 
 	// fct necessaire car attribut en protected
