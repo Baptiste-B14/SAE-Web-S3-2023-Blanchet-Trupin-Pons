@@ -18,7 +18,7 @@
         }
         // a revoir si ne marche pas : est normalement uitilisé par le tampon pour afficher le menu de co/deco/inscription
         public function affiche(){
-            return $this->cont->getAffichage();
+            return $this->controleur->getAffichage();
         }
     }
 

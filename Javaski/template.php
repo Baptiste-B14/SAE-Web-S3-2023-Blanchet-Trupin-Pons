@@ -44,7 +44,6 @@
 			<?php
 				echo $affichageModule;
 			?>
-		</section>
 	</body>
 	<footer>
 		<?php

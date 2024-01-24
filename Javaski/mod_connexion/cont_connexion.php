@@ -55,16 +55,17 @@
         }
 
         public function getAffichage(){
+         
             $this->action = isset($_GET['action']) ? $_GET['action'] : 'connexion';
             switch ($this->action){
                 case "creation" :
-                    $vue = $this->vue->getAffichageCreation();
+                    return $this->vue->getAffichageCreation();
                     break;  
                 case "connexion" :
-                    $vue = $this->vue->getAffichageConnexion();
+                    return $this->vue->getAffichageConnexion();
                     break;  
             }
-            return $vue;
+        
         }
 
 
