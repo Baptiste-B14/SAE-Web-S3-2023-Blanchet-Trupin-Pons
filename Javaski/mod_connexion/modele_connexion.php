@@ -83,7 +83,7 @@
                             echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                         }
                         else {
-                            $_SESSION["login"] = $_POST["mail"];
+                            $_SESSION["login"] = $rep[0]["identifiant"];
                             echo "Bienvenue ".$_SESSION["login"]."</br>";
                         }
                    }
@@ -101,14 +101,14 @@
 
                     if(!empty($rep)){
                         $mdpUser = $_POST["mdp"];
-                        $mdpBD = $rep[0]["mdp"];
+                        $mdpBD = $rep[0]["motdepasse"];
 
                         if(password_verify($mdpUser,$mdpBD)){
                             if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){
                                 echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                             }
                             else {
-                                $_SESSION["login"] = $_POST["mail"];
+                                $_SESSION["login"] = $rep[0]["identifiant"];
                                 echo "Bienvenue ".$_SESSION["login"]."</br>";
                             }
                         }

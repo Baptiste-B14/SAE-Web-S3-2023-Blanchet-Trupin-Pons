@@ -8,7 +8,7 @@ class ModeleMenus{
 	}
 
 	public function userAdministrateur(){
-		if(isset($_SESSION["login"])){
+		/*if(isset($_SESSION["login"])){
 			$bdd=connexion::getbdd();
 			$query= "SELECT * FROM admin WHERE identifiant=:sessionLogin";
         	$prepare = $bdd->prepare($query);
@@ -18,7 +18,7 @@ class ModeleMenus{
 				return true;
 			}
 		}
-		return false; 
+		return false; */
 	}
 }
 
