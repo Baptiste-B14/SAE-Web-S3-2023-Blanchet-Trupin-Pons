@@ -79,11 +79,13 @@
                    $mdpBD = $rep[0]["motdepasse"];
 
                    if(password_verify($mdpUser,$mdpBD)){
-                        if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){
+                        if(isset($_SESSION["login"]) && $_SESSION["login"] == $rep[0]["courriel"]){
                             echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                         }
                         else {
-                            $_SESSION["login"] = $_POST["mail"];
+                            $_SESSION["login"] = $rep[0]["courriel"];
+                            $_SESSION["id"] = $rep[0]["idUtilisateur"];
+                            $_SESSION["droits"] = $rep[0]["droits"];
                             echo "Bienvenue ".$_SESSION["login"]."</br>";
                         }
                    }
@@ -104,11 +106,13 @@
                         $mdpBD = $rep[0]["motdepasse"];
 
                         if(password_verify($mdpUser,$mdpBD)){
-                            if(isset($_SESSION["login"]) && $_SESSION["login"] == $_POST["mail"]){
+                            if(isset($_SESSION["login"]) && $_SESSION["login"] == $rep[0]["identifiant"]){
                                 echo "vous etes deja connecté sous l'indentifiant ".$_SESSION["login"]."</br>";
                             }
                             else {
-                                $_SESSION["login"] = $_POST["mail"];
+                                $_SESSION["login"] = $rep[0]["identifiant"];
+                                $_SESSION["id"] = $rep[0]["idUtilisateur"];
+                                $_SESSION["droits"] = $rep[0]["droits"];
                                 echo "Bienvenue ".$_SESSION["login"]."</br>";
                             }
                         }
@@ -125,6 +129,8 @@
         public function Deconnexion(){
             if (isset($_SESSION["login"])){
                 unset($_SESSION["login"]);
+                unset($_SESSION["droits"]);
+                unset($_SESSION["id"]);
                 echo "deconnexion";
             }
             else{
