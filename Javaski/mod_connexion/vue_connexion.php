@@ -112,7 +112,7 @@
         </form>';
         
         }
-
+        
         // ce menu s'affiche en haut à droite du site 
         public function menu(){
             echo "<a href='index.php?module=mod_connexion&action=connexion'>Se connecter</a>";
@@ -122,7 +122,7 @@
         public function VueDeco(){
             echo "<a href='index.php?module=mod_connexion&action=deconnexion'>Deconnexion</a>";
         }
-
+        
     }
 
 
