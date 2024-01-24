@@ -16,11 +16,9 @@
         public function exec(){
             $this->controleur->exec();
         }
-
-
         // a revoir si ne marche pas : est normalement uitilisé par le tampon pour afficher le menu de co/deco/inscription
         public function affiche(){
-            return $this->vue->menu();
+            return $this->cont->getAffichage();
         }
     }
 

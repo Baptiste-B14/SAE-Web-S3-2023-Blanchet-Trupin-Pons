@@ -33,45 +33,39 @@
                     break;    
                 case "bienvenue" : 
                     echo "bienvenue fdp";
-                    break;
-                case "creerUser";
-                    $this->creerUser();
-                    break;
-                case "connectUser";
-                    $this->connectUser();
-                    break;               
+                    break;        
             }
-        }
-
-        public function creerUser(){
-            $this->modele->CreerUser();
         }
 
         public function getAction() {
             return $this->action;
         }
 
+        
         public function creation(){
-            $this->vue->formCrea(); 
-        }
-
-        public function bienvenue(){
-            // mettre un msg de bienvenue quand SESSION validée 
+            $this->modele->CreerUser();
         }
 
         public function connexion(){
-            $this->vue->formCo(); 
+            $this->modele->Connexion();
         }
 
         public function deconnexion(){
             $this->modele->Deconnexion();
         }
 
-        public function connectUser(){
-            $this->modele->Connexion();
+        public function getAffichage(){
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'connexion';
+            switch ($this->action){
+                case "creation" :
+                    $vue = $this->vue->getAffichageCreation();
+                    break;  
+                case "connexion" :
+                    $vue = $this->vue->getAffichageConnexion();
+                    break;  
+            }
+            return $vue;
         }
-
-        
 
 
 
