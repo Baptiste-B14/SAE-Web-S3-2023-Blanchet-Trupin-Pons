@@ -32,7 +32,7 @@
                     $this->deconnexion();
                     break;    
                 case "bienvenue" : 
-                    echo "bienvenue fdp";
+                    echo "bienvenue";
                     break;        
             }
         }

@@ -12,6 +12,8 @@
         public function lienMenu(){
             // permet de lancer la recherche dans BD
             echo "<a href='index.php?module=mod_scores&action=meilleursU'>Lancer recherche</a>";
+            // pour ajouter une carte de jeu 
+            echo "<a href='index.php?module=mod_scores&action=form_XLS'>Ajouter une carte</a>";
         }
         
         public function menu(){

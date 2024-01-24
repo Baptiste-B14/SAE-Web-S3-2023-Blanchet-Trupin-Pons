@@ -24,7 +24,8 @@
                 case "meilleursU" :
                     $this->meilleursU();
                     break;  
-                case "" :                    
+                case "form_XLS" :   
+                    $this->formMap();                 
                     break; 
                 default :
                     die ("action inexistante");           
@@ -43,6 +44,10 @@
             $listeMU = $this->modele->get_meilleursUtilisateurs($map);
             // affiche la liste
             $this->vue->afficherMU($listeMU);
+        }
+
+        public function formMap(){
+            
         }
 
         
