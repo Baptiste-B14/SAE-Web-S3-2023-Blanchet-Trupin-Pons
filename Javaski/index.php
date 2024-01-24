@@ -30,7 +30,7 @@
                     break;
                 case ("mod_scores") :
                     //connexion::initConnexion();
-                    $m = new ModScoresMondiaux();
+                    $m = new ModScore();
                     break;
                 case ("mod_connexion") :
                     //connexion::initConnexion();

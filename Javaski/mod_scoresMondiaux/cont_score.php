@@ -36,6 +36,7 @@
         }
 
         public function meilleursU(){
+            $this->vue->lienMenu();
             $map = $this->vue->menu();
             
             // récup dans BD les meilleurs utilisateurs 

@@ -9,7 +9,10 @@
             parent::__construct();
         }
 
-
+        public function lienMenu(){
+            // permet de lancer la recherche dans BD
+            echo "<a href='index.php?module=mod_scores&action=meilleursU'>Lancer recherche</a>";
+        }
         
         public function menu(){
             // drop down menu des cartes
@@ -44,6 +47,31 @@
                 $selectedValue = $_POST['selectedValue'];  
             }
         }
+
+        public function afficherMU($listU) {
+
+            // convertir la liste en JSON 
+            $jsonResponse = json_encode($listU);
+            header('Content-Type: application/json');
+
+            // echo de la rép JSON
+            echo $jsonResponse;
+            ?>
+            <script>
+                var meilleursUtilisateursDiv = document.getElementById('meilleursUtilisateurs');
+                meilleursUtilisateursDiv.innerHTML = '';
+
+                // Analyser la réponse JSON et ajouter chaque utilisateur à la div
+                var listeUtilisateurs = <?php echo json_encode($listU); ?>;
+                listeUtilisateurs.forEach(function(utilisateur) {
+                    var paragraphe = document.createElement('p');
+                    paragraphe.textContent = utilisateur;
+                    meilleursUtilisateursDiv.appendChild(paragraphe);
+                });
+            </script>
+            <?
+        }
+
 
 
     }
