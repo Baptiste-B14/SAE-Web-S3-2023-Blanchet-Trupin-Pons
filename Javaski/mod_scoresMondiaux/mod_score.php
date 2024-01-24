@@ -18,7 +18,7 @@
         }
 
 
-        // a revoir si ne marche pas : est normalement uitilisé par le tampon pour afficher le menu
+        // ne pas utiliser normalement 
         public function affiche(){
             return $this->vue->menu();
         }

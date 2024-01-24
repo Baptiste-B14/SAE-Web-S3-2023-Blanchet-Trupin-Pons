@@ -11,5 +11,14 @@
             // vide actuellement
         }
 
+        public function getMap(){
+            
+        }
+
+        public function get_meilleursUtilisateurs($map){  
+
+            // code php pour recup les utilisateurs qui otn bon score dans la map selectionnée
+            // le trie des utilisateurs se fera dans la requete 
+        }
     }
 ?>
