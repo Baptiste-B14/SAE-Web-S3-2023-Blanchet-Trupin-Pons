@@ -17,22 +17,17 @@
         }
 
         public function exec (){
-            // si $a est vide alors 'bienvenue', sinon il prend la valeur de $a
-            $this->action = isset($_GET['action']) ? $_GET['action'] : 'bienvenue';
+            // si $a est vide alors 'meilleursU', sinon il prend la valeur de $a
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'meilleursU';
 
             switch ($this->action){
-                case "creation" :
+                case "meilleursU" :
+                    $this->meilleursU();
                     break;  
-                case "connexion" :                    
-                    break;
-                case "deconnexion" :
-                    break;    
-                case "bienvenue" : 
-                    break;
-                case "creerUser";
-                    break;
-                case "connectUser";
-                    break;               
+                case "" :                    
+                    break; 
+                default :
+                    die ("action inexistante");           
             }
         }
 
@@ -40,8 +35,14 @@
             return $this->action;
         }
 
-        public function bienvenue(){
-            // mettre un msg de bienvenue quand SESSION validée 
+        public function meilleursU(){
+            $this->vue->lienMenu();
+            $map = $this->vue->menu();
+            
+            // récup dans BD les meilleurs utilisateurs 
+            $listeMU = $this->modele->get_meilleursUtilisateurs($map);
+            // affiche la liste
+            $this->vue->afficherMU($listeMU);
         }
 
         
