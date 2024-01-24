@@ -10,17 +10,15 @@
         }
         
         public function getAffichageConnexion(){
-            /** 
+            
             // Securite : generation token 
             if(!isset($_SESSION['csrf_token'])){
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
             }
             $csrfToken = $_SESSION['csrf_token'];
-
-            include_once 'C:\wamp64\www\Site-Javaski\Javaski\Form\Form_Connexion.html';
-            **/
+            
             return '<script src="Form_Creation.js"></script>
-            <form action="index.php?module=mod_connexion&action=connectUser" method="post" enctype="multipart/form-data"> 
+            <form action="index.php?module=mod_connexion&action=connexion" method="post" enctype="multipart/form-data"> 
                 <div class="containerField">
                     <div class="divLabel">
                         <label for="mail">Adresse mail / Identifiant : </label> 
@@ -44,20 +42,18 @@
         }
 
         public function getAffichageCreation(){
-            /**  Securite : generation token
+            //Securite : generation token
             if(!isset($_SESSION['csrf_token'])){
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
             }
             $csrfToken = $_SESSION['csrf_token'];
 
-            include_once 'C:\wamp64\www\Site-Javaski\Javaski\Form\Form_Creation.html';
-            **/
             return '<!--Scripts JS nécessaire à bootstrap
         <script src="bootstrap-4.4.1-dist\js\jquery-3.4.1.min.js"></script>
         <script src="bootstrap-4.4.1-dist\js\bootstrap.js"></script>-->
         <script src="Form_Creation.js"></script>
     
-        <form action="index.php?module=mod_connexion&action=creerUser" method="post" enctype="multipart/form-data"> 
+        <form action="index.php?module=mod_connexion&action=creation" method="post" enctype="multipart/form-data"> 
             <div class="containerField">
                 <div class="divLabel" id="labelPP">
                     <label for="pp">Photo de Profil : </label> 
