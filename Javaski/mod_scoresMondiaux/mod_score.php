@@ -9,8 +9,8 @@
         private $controleur;
 
         public function __construct(){
-            $this->controleur = new ContConnexion();
-            $this->vue = new VueConnexion();
+            $this->controleur = new ContScore();
+            $this->vue = new VueScore();
         }
 
         public function exec(){
