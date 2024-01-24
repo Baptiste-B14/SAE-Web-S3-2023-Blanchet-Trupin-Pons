@@ -12,7 +12,9 @@ class ModMenus{
 	
 	public function affiche(){return $this->controleur->getAffichageMenu();}
 	
-
+	public function userAdministrateur() {
+		return $this->controleur->getModele()->userAdministrateur();
+	}
 }
 
 ?>

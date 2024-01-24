@@ -6,6 +6,7 @@
   <title>Javaski</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+  <meta name="author" content="Baptiste BLANCHET, Matthias TRUPIN, Gaspard PONS" />
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/javaski.webflow.css" rel="stylesheet" type="text/css">
@@ -18,19 +19,31 @@
 	</header>
 	<body class = "body">
 		
-
+		<div data-animation="default" data-collapse="all" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container shadow-three w-nav">
+		<div class="w-layout-blockcontainer w-container">
+			<div class="columns w-row">
 		<?php
 			
 			if (empty($_SESSION["login"])){
 				echo $compMenu->affiche();
-				echo '<br><a href="index.php?module=mod_connexion&action=formConnexion">formulaire connexion </a><br>';
+				// CHANGER LES ECHO SUIVANTS et les mettre en div class
+				echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=formConnexion class="navbar-brand w-nav-brand"">formulaire connexion </a></div>';
+			}else if ($compMenu->userAdministrateur()){
+				echo $compMenu->affiche();
+				echo '<div class="w-col w-col-2"><a href="index.php?module=mod_outilsAdministrateurs class="navbar-brand w-nav-brand"">deconnexion </a></div>';
+				echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=deconnexion class="navbar-brand w-nav-brand"">deconnexion </a></div>';
 			}else{
 				echo $compMenu->affiche();
-				echo '<br><br><a href="index.php?module=mod_connexion&action=deconnexion">deconnexion </a><br>';
+				echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=deconnexion class="navbar-brand w-nav-brand"">deconnexion </a></div>';
 			}
-			echo $affichageModule;
-
+			
 		?>
+			</div>
+		</div>
+		</div>
+			<?php
+				echo $affichageModule;
+			?>
 		</section>
 	</body>
 	<footer>
@@ -52,7 +65,7 @@
 			  </div>
 			  <div class="footer-divider-two"></div>
 			  <div class="footer-bottom">
-				<div class="footer-copyright">© 2023 Javaski.inc. Tous droits réservés</div>
+				<div class="footer-copyright">© 2023 Javaski.inc. Tous droits réservés - Auteurs : Baptiste BLANCHET, Matthias TRUPIN, Gaspard PONS</div>
 				<div class="footer-legal-block">
 				  <a href="#" class="footer-legal-link">Terms Of Use</a>
 				  <a href="#" class="footer-legal-link">Privacy Policy</a>

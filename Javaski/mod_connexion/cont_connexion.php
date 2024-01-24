@@ -22,8 +22,7 @@
 
             switch ($this->action){
                 case "creation" :
-                    echo 'bonjourno';
-                    $this->creation();
+                    $this->controleur->creation();
                     break;  
                 case "connexion" :
                     $this->connexion();
