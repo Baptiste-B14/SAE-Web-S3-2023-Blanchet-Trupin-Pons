@@ -13,22 +13,18 @@
            
         }
 
-        public function afficherProfil($cheminVers){
-
-           /* <div class="containerField">
-                <div class="divLabel" id="labelPP">
-                    <label for="pp">Photo de Profil : </label> 
-                </div>
-                <!--cette div sert à stocker l'img quand selectionnée-->
-                <div id="pppreview" class="pp-preview"></div> 
-                <input type="file" id="pp" name="pp" accept="image/*"> 
-                
-            </div>*/
+        public function afficherProfil($profil){
 
             $image = $profil["cheminVersPhoto"];
             echo "<div class='containerField'>"
             echo '<img src="' . $image . '" alt="PP">';
             echo "identifiant : ", $profil["identifiant"], " Mail : ", $profil["courriel"];
+            if($profil["droit"] == true){
+                echo "Vous etes modérateur !";
+            }
+            else {
+                echo "Vous n'etes pas modérateur ";
+            }
             echo "</div>";
             
         }
