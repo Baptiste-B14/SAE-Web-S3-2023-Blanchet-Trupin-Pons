@@ -52,7 +52,7 @@
         }
 
         public function affiche_MUG($listeMUG){
-          return '<section class="section-6">
+          $vueScore =  '<section class="section-6">
             <div class="div-block-6">
               <div>
                 <h1 class="heading-5">Scores</h1>
@@ -80,20 +80,25 @@
                   <p class="infos">Rank</p>
                 </div>
                 <div class="infoscore">
-                  <p class="infos">Joueur</p>
-                  '.foreach($listeMUG as $MUG){
-                    .'</br><p class="elementInfos">'.$MUG["identifiant"].'</p>'.
-                  }.'
+                  <p class="infos">Joueur</p>';
+                 
+                  foreach($listeMUG as $MUG){
+                    $vueScore = $vueScore.'</br><p class="elementInfos">'.$MUG["identifiant"].'</p>
+                    </div>
+                  <div class="infoscore">
+                    <p class="infos">Score</p>
+                    </br><p class="elementInfos">'.$MUG["score"].'</p>';
+                  
+                  
+                  }
+                  $vueScore = $vueScore.' </div>
+                  </div>
                 </div>
-                <div class="infoscore">
-                  <p class="infos">Score</p>
-                  '.foreach($listeMUG as $MUG){
-                    .'</br><p class="elementInfos">'.$MUG["score"].'</p>'.
-                  }.'
-                </div>
-              </div>
-            </div>
-          </section>';
+              </section>';
+                
+                     
+                    
+               
         }
 
         public function afficherMU($listU) {

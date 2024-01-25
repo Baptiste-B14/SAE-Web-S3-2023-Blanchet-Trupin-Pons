@@ -112,7 +112,7 @@
                 $prepare->execute(['idP'=>htmlspecialchars($partie["idPartie"])]);
                 $map= $prepare->fetchAll();
                 
-                $vueProfil = $vueProfil."<div class="w-layout-blockcontainer container-3 w-container">
+                $vueProfil = $vueProfil.'<div class="w-layout-blockcontainer container-3 w-container">
                 
                 <div class="w-layout-vflex flex-block">
                     <div class="w-row">
@@ -124,7 +124,7 @@
                     </div>
                     </div>
                 </div>
-                ";
+                ';
             }
             $vueProfil = $vueProfil.'</div>
             </div><section class="section-2">
