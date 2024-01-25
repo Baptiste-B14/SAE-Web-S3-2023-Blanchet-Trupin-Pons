@@ -82,13 +82,5 @@
           
         }
 
-        public function rechercher(){
-          $query='SELECT identifiant from utilisateur WHERE identifiant=:identi';
-          $prepare = $bdd->prepare($query);
-          // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
-          $prepare->execute(['identi'=>htmlspecialchars($_POST["nom"])]);
-          $rep= $prepare->fetchAll();
-          return $rep;
-        }
     }
 ?>
