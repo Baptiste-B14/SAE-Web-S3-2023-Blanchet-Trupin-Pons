@@ -59,7 +59,7 @@ class VueTours extends VueGenerique{
     }
     
     public function initialiserVueTours($tours){
-        for ($tours : $tour){
+        foreach ($tours as $tour){
 
             $req1 =  "SELECT count(idTour) as nombreDeSelection FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour";
             $pdo_req1 = self::$bdd->query($req1);

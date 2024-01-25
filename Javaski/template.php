@@ -15,25 +15,7 @@
      
 				<?php
 					
-					
-					if (empty($_SESSION["login"])){
-						echo $compMenu->affiche();
-						// CHANGER LES ECHO SUIVANTS et les mettre en div class
-						echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=formConnexion class="navbar-brand w-nav-brand"">formulaire connexion </a></div>';
-					}else if ($compMenu->userAdministrateur()){
-						echo $compMenu->affiche();
-						echo '<div class="w-col w-col-2"><a href="index.php?module=mod_outilsAdministrateurs class="navbar-brand w-nav-brand"">deconnexion </a></div>';
-						echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=deconnexion class="navbar-brand w-nav-brand"">deconnexion </a></div>';
-					}else{
-						echo $compMenu->affiche();
-						echo '<div class="w-col w-col-2"><a href="index.php?module=mod_connexion&action=deconnexion class="navbar-brand w-nav-brand"">deconnexion </a></div>';
-					}
-					?>
-				
-				
-
-				<?php
-				
+					echo $compMenu->affiche();
 					echo $var;
 				?>
 			
