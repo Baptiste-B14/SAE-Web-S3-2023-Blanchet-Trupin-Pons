@@ -18,12 +18,13 @@
         
         public function menu(){
             // drop down menu des cartes
-            ?>
-            <select id="cartes" onchange="afficherMeilleursUtilisateurs()">
-                <option value="carte1">Carte 1</option>
-                <option value="carte2">Carte 2</option>
-                <!-- ajouter les autres cartes -->
+            echo"<select id='cartes' onchange='afficherMeilleursUtilisateurs()'>
+            <option value='carte1'>Carte 1</option>
+            <option value='carte2'>Carte 2</option>
+            <!-- ajouter les autres cartes -->
             </select>
+            
+            
             <script>
                 function afficherMeilleursUtilisateurs() {
                     var selectedValue = document.getElementById('cartes').value;
@@ -43,8 +44,7 @@
                     // Envoi de la requête avec les données
                     xhr.send('selectedValue=' + encodeURIComponent(selectedValue));
                 }
-            </script>
-            <?
+            </script>";
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $selectedValue = $_POST['selectedValue'];  
             }
