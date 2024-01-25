@@ -17,9 +17,9 @@ class ContMenus{
 		if(isset($_SESSION["id"]) && $this->modele->userAdministrateur()){
 			return $this->vue->getAffichageMenuAdministrateur();
 		}else if(isset($_SESSION["id"])){
-			return $this->vue->getAffichageMenuUtilisateurNonConnecte();
-		}else{
 			return $this->vue->getAffichageMenuUtilisateur();
+		}else{
+			return $this->vue->getAffichageMenuUtilisateurNonConnecte();
 		}
 	}
 	public function getModele(){

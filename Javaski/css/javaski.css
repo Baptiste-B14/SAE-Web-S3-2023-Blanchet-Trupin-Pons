@@ -1391,3 +1391,73 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+
+
+/* PARTIE POUR LES FORMULAIRES */
+
+/*conteneurs de tout les champs à rentrer dans le formulaire*/
+.containerField{
+  display: flex; /* Utiliser un conteneur flexible pour aligner les enfants horizontalement */
+  align-items: center; /* met les enfants au centre de la hauteur de la div -> utile pour photo de profil*/
+}
+
+/*permet d'avoir un aspect alligné pour les input*/
+.divLabel{
+  width: 150px;
+}
+
+/*applique des règles à tous les enfants*/
+.containerField > *{
+  margin-right: 50px;
+}
+
+#pppreview {
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%; /* Rendre image circulaire */
+  overflow: hidden; /* image ne dépasse pas les limites du cercle */
+  background-color: blue;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+
+#pppreview img {
+  width: 100%; /* pour que img soit a la taille du cercle*/
+  height: 100%; /* pour que img soit a la taille du cercle*/
+  object-fit: cover; /* au dessus cercle */
+  border-radius: 50%; /* pour que cercle si img rectange*/
+}
+
+h3{
+  font-size:small;
+}
+p{
+  font-size: smaller;
+}
+
+#messageMDP{
+  background-color: rgba(128, 128, 128, 0.258);
+  width: 350px; 
+  border-radius: 5%;
+  text-align: center;
+}
+
+/*quand validation restriction mdp = met le texte en vert*/
+.valid {
+  color: green;
+}
+
+/*même principe que validation mais pour invalidation*/
+.invalid {
+  color: red;
+}
+
+/*le bouton est pas ouf même avec bootstrap*/
+/*input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}*/  
+
+/*fin partie form */
