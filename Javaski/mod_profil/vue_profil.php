@@ -77,19 +77,19 @@
                   </div>
                   <div class="w-layout-vflex flex-block">';
             foreach($amis as $ami){
-                $vueProfil= $vueProfil."<div class="w-row">
-                <div class="w-col w-col-4">
-                  <div class="tabinfo">".$ami["identifiant"]."</div>
-                </div>
-                <div class="w-col w-col-4">
-                  <div class="tabinfo">
-                    <div class="tabinfo">".$ami["experience"]."<br><br><br>‍</div>
+                $vueProfil= $vueProfil.'<div class="w-row">
+                  <div class="w-col w-col-4">
+                    <div class="tabinfo">'.$ami["identifiant"].'</div>
                   </div>
-                </div>
-                <div class="w-col w-col-4">
-                  <div class="tabinfo">".$ami["courriel"]."</div>
-                </div>
-              </div>";
+                  <div class="w-col w-col-4">
+                    <div class="tabinfo">
+                      <div class="tabinfo">'.$ami["experience"].'<br><br><br>‍</div>
+                    </div>
+                  </div>
+                  <div class="w-col w-col-4">
+                    <div class="tabinfo">'.$ami["courriel"].'</div>
+                  </div>
+              </div>';
             }
             
             $vueProfil = $vueProfil.'</div>
