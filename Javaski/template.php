@@ -14,8 +14,13 @@
 			
      
 				<?php
-					
 					echo $compMenu->affiche();
+					?>
+				
+				
+
+				<?php
+				
 					echo $var;
 				?>
 			
