@@ -18,9 +18,8 @@
         }
 
 
-        // ne pas utiliser normalement 
         public function affiche(){
-            return $this->vue->menu();
+            return $this->controleur->getAffichage();
         }
     }
 

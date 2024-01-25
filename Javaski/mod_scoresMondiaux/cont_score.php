@@ -57,6 +57,9 @@
             $this->modele->post_BD();
         }
 
+        public function getAffichage(){
+            return $this->vue->getAffichage();
+        }
         
 
 

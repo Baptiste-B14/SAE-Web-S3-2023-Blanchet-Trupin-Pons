@@ -39,7 +39,10 @@
             $profil = $this->modele->get_profil($_SESSION["id"]);
             $this->vue->afficherProfil($profil);
         }
-
+        
+        public function getAffichage(){
+            return $this->vue->getAffichage();
+        }
 
     }
     
