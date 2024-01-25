@@ -95,7 +95,50 @@
             $vueProfil = $vueProfil.'</div>
                             </div>
                         </div>
-                        </section><section class="section-2"><div>
+                        </section>
+                <section class="section-2">
+                  <div class="w-layout-blockcontainer container-3 w-container">
+                    <div>
+                      <div class="w-row">
+                        <div class="w-col w-col-4">
+                          <p class="paragraph-5"><strong>Username</strong></p>
+                        </div>
+                        <div class="w-col w-col-4">
+                          <p class="paragraph-6"><strong>Accepter</strong></p>
+                        </div>
+                        <div class="w-col w-col-4">
+                          <p class="paragraph-5"><strong>Refuser</strong></p>
+                        </div>
+                      </div>
+                      <div class="w-layout-vflex flex-block">';
+                      foreach($demandes as $demande){
+                        $req3='
+                        SELECT identifiant, idUtilisateur FROM demande_ami WHERE idUtilisateur1=:idU
+                        ';
+                        $prepare1 = $bdd->prepare($req3);
+                        $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur1"])]);
+                        $identifiantUtilisateur= $prepare1->fetchAll(); 
+                        $vueProfil = $vueProfil.'<div class="w-row">
+                        <div class="w-col w-col-4">
+                          <div class="tabinfo">'.$identifiantUtilisateur["identifiant"].'</div>
+                        </div>
+                        <div class="w-col w-col-4">
+                          <div class="tabinfo">
+                            <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 80vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
+                          </div>
+                        </div>
+                        <div class="column-7 w-col w-col-4">
+                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
+                        </div>
+                      </div>';
+                      }
+                        
+                     $vueProfil = $vueProfil.'</div>
+                    </div>
+                  </div></section>';
+            
+                        
+            $vueProfil = $vueProfil.'<section class="section-2"><div>
                         <div class="columns-3 w-row">
                             <div class="w-col w-col-6">
                             <p class="paragraph-5"><strong>Map</strong></p>
