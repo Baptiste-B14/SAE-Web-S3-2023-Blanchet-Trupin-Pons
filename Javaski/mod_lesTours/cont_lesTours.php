@@ -34,7 +34,8 @@ class ContTours{
 
     public function allTours(){
         $listeTours = $this->modele->getAllTours();
-        $this->vue->afficheAllTours($listeTours);
+        $this->vue->initialiserVueTours($listeTours);
+        
     }
 
 	public function getAffichage(){
