@@ -41,7 +41,7 @@
             $req = "
             INSERT INTO est_ami_avec (idUtilisateur1, idUtilisateur2) values (:idAmi, :id);
             DELETE FROM demande_ami WHERE idUtilisateur1=:idAmi AND idUtilisateur2=:id";
-            $pdo_req = self::$bdd->query($req);
+            $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute([ 'id', 'idAmi'=>htmlspecialchars($_SESSION['id']), $idAmi ]);
 
         }
@@ -49,21 +49,21 @@
         public function refuserDemandeAmi($idAmi) {
             $req = "
             DELETE FROM demande_ami WHERE idUtilisateur1=:idAmi AND idUtilisateur2=:id";
-            $pdo_req = self::$bdd->query($req);
+            $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute([ 'id', 'idAmi'=>htmlspecialchars($_SESSION['id']), $idAmi ]);
         }
         
         public function get_historiqueParties () {
-            $req = "SELECT partie.score, partie.victoire FROM utilisateur inner join a_joué using(idUtilisateur) inner join partie where utilisateur.idUtilisateur=:id";
-            $pdo_req = self::$bdd->query($req);
+            $req = "SELECT partie.score, partie.victoire, partie.idPartie FROM utilisateur inner join a_joué using(idUtilisateur) inner join partie where utilisateur.idUtilisateur=:id";
+            $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute(['id'=>htmlspecialchars($_SESSION["id"])]);
             return $pdo_req->fetchAll();
         }
         
         public function get_listeAmis () {
-            $req = "SELECT utilisateur.pseudo, utilisateur.courriel, utilisateur.droits FROM est_ami_avec inner join utilisateur on(idUtilisateur2=idUtilisateur) where est_ami_avec.idUtilisateur1=:id";
-            $pdo_req = self::$bdd->query($req);
-            $pdo_req->execute(['id'=>htmlspecialchars($_SESSION["id"])]);
+            $req = "SELECT pseudo, courriel, droits FROM est_ami_avec inner join utilisateur on(est_ami_avec.idUtilisateur2=utilisateur.idUtilisateur) where est_ami_avec.idUtilisateur1=:idU";
+            $pdo_req = self::$bdd->prepare($req);
+            $pdo_req->execute(['idU'=>htmlspecialchars($_SESSION["id"])]);
             return $pdo_req->fetchAll();
         }
         

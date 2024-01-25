@@ -53,7 +53,7 @@
             $demandes = $this->modele->get_demandes();
             $amis = $this->modele->get_listeAmis();
             //return $this->vue->afficherProfil($profil, $demande);
-            return $this->vue->afficheProfil($profil, $demandes, $amis, $this->modele->get_historiqueParties());
+            return $this->vue->afficheProfil($profil, $demandes, $amis, $this->modele->get_historiqueParties(), $this->modele->getbdd());
         
         }
 
