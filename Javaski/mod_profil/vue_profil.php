@@ -29,6 +29,14 @@
             
         }
 
+        public function afficherDemandes($demandes){
+            echo"<div>";
+            foreach($demandes as $demande){
+                echo"<div><p> demande d'amis de ".$demande["identififant"]."</p> <a href='index.php?module=mod_connexion&action=???'>Accepter</a> <a href='index.php?module=mod_connexion&action=???'>Refuser</a></div>";
+            }
+            echo"</div>";
+        }
+
 
 
     }

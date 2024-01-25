@@ -9,6 +9,14 @@ class VueTours extends VueGenerique{
         parent::__construct();
 	}
 
+    public function afficheAllTours($listeTours){
+        ?><ul><?php
+        foreach($listeTours as $Tour){
+            ?><li><div><p>Nom : <?=$Tour["nomTour"]?> Winrate : <?=$Tour["pourcentageVictoire"]?> </p></div></li><?php
+        }
+        ?></ul><?php
+
+    }
 
 
 	

@@ -16,20 +16,25 @@ class ContTours{
 		$this->vue=new VueTours();
 		$this->modele=new ModeleTours();
 	}
-    
+
     public function exec (){
         // si $a est vide alors 'profilGeneral', sinon il prend la valeur de $a
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'profilGeneral';
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'toutesTours';
 
         switch ($this->action){
-            case "profilGeneral" :
-                $this->profilG();
+            case "toutesTours" :
+                $this->allTours();
                 break;  
             case "" :                   
                 break; 
             default :
                 die ("action inexistante");           
         }
+    }
+
+    public function allTours(){
+        $listeTours = $this->modele->getAllTours();
+        $this->vue->afficheAllTours($listeTours);
     }
 
 	public function getAffichage(){
