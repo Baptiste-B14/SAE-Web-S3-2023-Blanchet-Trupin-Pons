@@ -26,7 +26,7 @@ class ModeleTours extends Connexion{
         t.idTour, t.nomTour
         ORDER BY
         t.idTour;";
-        $prepare = $bdd->prepare($query);
+        $prepare = self::$bdd->prepare($query);
         $prepare->execute([]);
         $rep= $prepare->fetchAll();
 

@@ -31,20 +31,6 @@ class VueTours extends VueGenerique{
             </div>
           </div>
         </div>
-      </div>
-      <div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
-        <div class="div-block-5">
-          <div class="infoscore">
-            <p class="infos">Nombre de Selection</p>
-          </div>
-          <div class="infoscore">
-            <p class="infos">Nombre de Kill</p>
-          </div>
-          <div class="infoscore">
-            <p class="infos">Nombre de Destruction</p>
-          </div>
-          <p class="infos">WinRate</p>
-        </div>
       </div>';
 	}
     // Adapter cette fonction pour afficher dynamiquement les tours
