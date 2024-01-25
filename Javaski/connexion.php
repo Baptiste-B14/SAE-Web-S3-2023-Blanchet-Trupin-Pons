@@ -7,7 +7,6 @@ class Connexion{
 	public static function initConnexion(){
 		try{
 				self::$bdd = new PDO('mysql:host=localhost;dbname=javaski', 'root', '');
-				echo 'connecté';
 			}catch(PDOException $err){
 				echo 'Erreur de connection : '. $err->getMessage();
 		}
