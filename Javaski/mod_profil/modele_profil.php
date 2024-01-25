@@ -54,7 +54,7 @@
         }
         
         public function get_historiqueParties () {
-            $req = "SELECT partie.score, partie.victoire, partie.idPartie FROM utilisateur inner join a_joué using(idUtilisateur) inner join partie where utilisateur.idUtilisateur=:id";
+            $req = "SELECT partie.score, partie.victoire, partie.idPartie FROM a_joué inner join partie using(idPartie) where a_joué.idUtilisateur=:id";
             $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute(['id'=>htmlspecialchars($_SESSION["id"])]);
             return $pdo_req->fetchAll();

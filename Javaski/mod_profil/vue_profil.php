@@ -59,7 +59,7 @@
             <div class="amis">
               <section class="section">
                 <h1>Mes Amis</h1>
-                <a href="#" class="button-7 w-button">Demander un ami</a>
+                <a href="index.php?module=mod_profil&action=" class="button-7 w-button">Demander un ami</a>
               </section>
               <section class="section-2">
                 <div class="w-layout-blockcontainer container-3 w-container">
@@ -76,30 +76,32 @@
                       </div>
                     </div>
                   <div class="w-layout-vflex flex-block">';
-            foreach($amis as $ami){
-                $vueProfil= $vueProfil.'<div class="w-row">
-                  <div class="w-col w-col-4">
-                    <div class="tabinfo">'.$ami["identifiant"].'</div>
-                  </div>
-                  <div class="w-col w-col-4">
-                    <div class="tabinfo">
-                      <div class="tabinfo">'.$ami["experience"].'<br><br><br>‍</div>
-                    </div>
-                  </div>
-                  <div class="w-col w-col-4">
-                    <div class="tabinfo">'.$ami["courriel"].'</div>
-                  </div>
-              </div>';
-            }
-            
-            $vueProfil = $vueProfil.'</div>
-                            </div>
+                  foreach($amis as $ami){
+                    $vueProfil= $vueProfil.'
+                    <div class="w-row">
+                      <div class="w-col w-col-4">
+                        <div class="tabinfo">'.$ami["identifiant"].'</div>
+                      </div>
+                      <div class="w-col w-col-4">
+                        <div class="tabinfo">
+                          <div class="tabinfo">'.$ami["experience"].'<br><br><br>‍</div>
                         </div>
-                        </section>
-                <section class="section-2">
-                  <div class="w-layout-blockcontainer container-3 w-container">
-                    <div>
-                      <div class="w-row">
+                      </div>
+                      <div class="w-col w-col-4">
+                        <div class="tabinfo">'.$ami["courriel"].'</div>
+                      </div>
+                    </div>
+                  ';
+                  }
+            
+                  $vueProfil = $vueProfil.'
+                  </div>
+                </div>
+              </section>
+              <section class="section-2">
+                <div class="w-layout-blockcontainer container-3 w-container">
+                  <div>
+                    <div class="w-row">
                         <div class="w-col w-col-4">
                           <p class="paragraph-5"><strong>Username</strong></p>
                         </div>
@@ -109,8 +111,8 @@
                         <div class="w-col w-col-4">
                           <p class="paragraph-5"><strong>Refuser</strong></p>
                         </div>
-                      </div>
-                      <div class="w-layout-vflex flex-block">';
+                    </div>
+                    <div class="w-layout-vflex flex-block">';
                       foreach($demandes as $demande){
                         $req3='
                         SELECT identifiant, idUtilisateur FROM demande_ami WHERE idUtilisateur1=:idU
@@ -118,71 +120,73 @@
                         $prepare1 = $bdd->prepare($req3);
                         $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur1"])]);
                         $identifiantUtilisateur= $prepare1->fetchAll(); 
-                        $vueProfil = $vueProfil.'<div class="w-row">
-                        <div class="w-col w-col-4">
-                          <div class="tabinfo">'.$identifiantUtilisateur["identifiant"].'</div>
-                        </div>
-                        <div class="w-col w-col-4">
-                          <div class="tabinfo">
-                            <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 80vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
+                        $vueProfil = $vueProfil.'
+                        <div class="w-row">
+                          <div class="w-col w-col-4">
+                            <div class="tabinfo">'.$identifiantUtilisateur["identifiant"].'</div>
                           </div>
-                        </div>
-                        <div class="column-7 w-col w-col-4">
-                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
-                        </div>
-                      </div>';
+                          <div class="w-col w-col-4">
+                            <div class="tabinfo">
+                              <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 80vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
+                            </div>
+                          </div>
+                          <div class="column-7 w-col w-col-4">
+                            <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
+                          </div>
+                        </div>';
                       }
                         
-                     $vueProfil = $vueProfil.'</div>
+                      $vueProfil = $vueProfil.'</div>
                     </div>
-                  </div></section>';
+                  </div>
+                </div>
+              </section>';
             
                         
-            $vueProfil = $vueProfil.'<section class="section-2"><div>
-                        <div class="columns-3 w-row">
-                            <div class="w-col w-col-6">
-                            <p class="paragraph-5"><strong>Map</strong></p>
-                            </div>
-                            <div class="w-col w-col-6">
-                            <p class="paragraph-5"><strong>Score</strong></p>
-                            </div>
-                        </div>
-                        <div class="w-layout-blockcontainer container-3 w-container">
-                        ';
-                
-            foreach($parties as $partie){
-              $nomsCartes = '';
-                $req='
-                SELECT map.nom FROM a_eu_lieu_dans natural join map WHERE idPartie >4 limit 10
-                ';
-                $prepare = $bdd->prepare($req);
-                $prepare->execute();  
-                //$prepare->execute(['idP'=>htmlspecialchars($partie["idPartie"])]);
-                $maps= $prepare->fetchAll();
-                
-                foreach ($maps as $map) {
-                  $nomsCartes .= $map['nom'] . '<br><br><br>‍';
-                }
-          
-      
-                  // Ajouter les informations de la partie à la variable $vueProfil
-                      $vueProfil .= '<div class="w-layout-vflex flex-block">
-                      <div class="w-row">
-                      <div class="w-col w-col-6">
-                          <div class="tabinfo">' . $nomsCartes . '</div>
-                      </div>
-                      <div class="w-col w-col-6">
-                          <div class="tabinfo">' . htmlspecialchars($partie["score"]) . '</div>
-                      </div>
-                  </div>  
-                </div>';
-            }
-          
-          
             $vueProfil = $vueProfil.'
-            </div>
-            </div>
-            </div><section class="section-2">
+              <section class="section-2">
+                <div>
+                  <div class="columns-3 w-row">
+                        <div class="w-col w-col-6">
+                          <p class="paragraph-5"><strong>Map</strong></p>
+                        </div>
+                        <div class="w-col w-col-6">
+                          <p class="paragraph-5"><strong>Score</strong></p>
+                        </div>
+                </div>
+                <div class="w-layout-blockcontainer container-3 w-container">
+                  <div class="w-layout-vflex flex-block">';
+            
+                    foreach($parties as $partie){
+                      $nomsCartes = '';
+                        $req='
+                        SELECT map.nom FROM a_eu_lieu_dans natural join map WHERE idPartie=:idP limit 10
+                        ';
+                        $prepare = $bdd->prepare($req);
+                        $prepare->execute(['idP'=>htmlspecialchars($partie["idPartie"])]);
+                        $maps= $prepare->fetchAll();
+                        
+                        foreach ($maps as $map) {
+                          $nomsCartes .= $map['nom'] . '<br><br><br>‍';
+                        }
+                        // Ajouter les informations de la partie à la variable $vueProfil
+                              $vueProfil .= '
+                              <div class="w-row">
+                              <div class="w-col w-col-6">
+                                  <div class="tabinfo">' . $nomsCartes . '</div>
+                              </div>
+                              <div class="w-col w-col-6">
+                                  <div class="tabinfo">' . htmlspecialchars($partie["score"]) . '</div>
+                              </div>
+                      ';
+                    }
+          
+          
+                    $vueProfil = $vueProfil.'
+                  </div>
+                </div>
+              </section>
+              <section class="section-2">
                         <div class="w-layout-blockcontainer container-3 w-container">
                             <div>
                             <div class="columns-3 w-row">
