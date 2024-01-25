@@ -37,7 +37,19 @@
             return $rep;
         }
 
+        public function get_historiqueParties () {
+            $req = "SELECT partie.score, partie.victoire FROM utilisateur inner join a_joué using(idUtilisateur) inner join partie where utilisateur.idUtilisateur=:id";
+            $pdo_req = self::$bdd->query($req);
+            $pdo_req->execute(['id'=>htmlspecialchars($_SESSION["id"])]);
+            return $pdo_req->fetchAll();
+        }
         
+        public function get_listeAmis () {
+            $req = "SELECT utilisateur.pseudo, utilisateur.courriel, utilisateur.droits FROM est_ami_avec inner join utilisateur on(idUtilisateur2=idUtilisateur) where est_ami_avec.idUtilisateur1=:id";
+            $pdo_req = self::$bdd->query($req);
+            $pdo_req->execute(['id'=>htmlspecialchars($_SESSION["id"])]);
+            return $pdo_req->fetchAll();
+        }
         
 
     }
