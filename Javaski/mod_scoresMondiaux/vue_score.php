@@ -12,7 +12,7 @@
 
         public function lienMenu(){
             // permet de lancer la recherche dans BD
-            echo "<a href='index.php?module=mod_scores&action=meilleursU'>Lancer recherche</a>";
+            //echo "<a href='index.php?module=mod_scores&action=meilleursU'>Lancer recherche</a>";
             // pour ajouter une carte de jeu 
             echo "<a href='index.php?module=mod_scores&action=form_XLS'>Ajouter une carte</a>";
         }
@@ -123,9 +123,9 @@
         function afficherFormXLS(){
             //Securite : generation token
             if(!isset($_SESSION['csrf_token'])){
-                $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
-            }
-            $csrfToken = $_SESSION['csrf_token'];
+              $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // generation token aléatoire 
+          }
+          $csrfToken = $_SESSION['csrf_token'];
 
             echo '<script src="Form_Creation.js"></script>
     
@@ -143,7 +143,7 @@
                     </div>
                     <input type="file" id="fichier" name="fichier" accept=".xls, .xlsx, .xlsm" required>
                 </div>
-                <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                <input type="hidden" name="csrf_token" value="'.$csrfToken.'">
     
                 <br/>
                 
@@ -169,7 +169,7 @@
                       <div>Selectionner</div>
                     </div>
                     <nav class="w-dropdown-list">
-                      <a href="#" class="w-dropdown-link">Link 1</a>
+                      <a href="index.php?module=mod_scores&action=lienMenu" class="w-dropdown-link">Link 1</a>
                       <a href="#" class="w-dropdown-link">Link 2</a>
                       <a href="#" class="w-dropdown-link">Link 3</a>
                     </nav>

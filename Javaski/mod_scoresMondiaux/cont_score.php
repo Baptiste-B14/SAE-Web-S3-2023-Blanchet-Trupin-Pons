@@ -28,10 +28,13 @@
                 case "form_XLS" :   
                     $this->formMap();                 
                     break; 
-                case "post_XLS" : 
+                case "post_XLS" :
                     $this->post();
                     break;
                 case "corpsPage":
+                    break;
+                case "lienMenu":
+                    $this->lienMenu();
                     break;
                 default :
                     die ("action inexistante");           
@@ -70,6 +73,9 @@
             return $this->vue->getAffichage();
         }
         
+        public function lienMenu(){
+            return $this->vue->lienMenu();
+        }
 
 
 
