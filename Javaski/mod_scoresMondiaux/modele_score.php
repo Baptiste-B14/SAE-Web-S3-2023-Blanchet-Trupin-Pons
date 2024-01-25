@@ -15,9 +15,19 @@
             
         }
 
-        public function get_meilleursUtilisateurs($map){  
+        public function get_meilleursUtilisateursGlobal(){
+          // return les 10 meilleurs joueurs (=les dix meilleurs scores)
+          $query= "SELECT utilisateur.identifiant, partie.score FROM utilisateur INNER JOIN a_joué using(idUtilisateur) INNER JOIN partie using(idPartie) INNER JOIN a_eu_lieu_dans using(idPartie) ORDER BY partie.score DESC LIMIT 10 ";
+          $prepare = self::$bdd->prepare($query);
+          $prepare->execute(['map'=>$map ]);
+          $rep= $prepare->fetchAll();
 
-          $query= "SELECT * FROM utilisateur INNER JOIN a_joué using(idUtilisateur) INNER JOIN partie using(idPartie) INNER JOIN a_eu_lieu_dans using(idPartie) Where idMap = :map ORDER BY partie.score DESC LIMIT 10 ";
+          return $rep;
+        }
+
+        public function get_meilleursUtilisateurs($map){  
+          // return les 10 meilleurs joueurs d'une map(=les dix meilleurs scores)
+          $query= "SELECT utilisateur.identifiant, partie.score FROM utilisateur INNER JOIN a_joué using(idUtilisateur) INNER JOIN partie using(idPartie) INNER JOIN a_eu_lieu_dans using(idPartie) Where idMap = :map ORDER BY partie.score DESC LIMIT 10 ";
           
           
           $prepare = self::$bdd->prepare($query);

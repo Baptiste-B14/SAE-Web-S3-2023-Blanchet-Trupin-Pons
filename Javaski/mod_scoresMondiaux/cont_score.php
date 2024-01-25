@@ -43,13 +43,19 @@
         }
 
         public function meilleursU(){
-            $this->vue->lienMenu();
-            $map = $this->vue->menu();
+            echo'méthode actuellement en full commentaire';
+            // $this->vue->lienMenu();
+            // $map = $this->vue->menu();
             
-            // récup dans BD les meilleurs utilisateurs 
-            $listeMU = $this->modele->get_meilleursUtilisateurs($map);
-            // affiche la liste
-            $this->vue->afficherMU($listeMU);
+            // // récup dans BD les meilleurs utilisateurs 
+            // $listeMU = $this->modele->get_meilleursUtilisateurs($map);
+            // // affiche la liste
+            // $this->vue->afficherMU($listeMU);
+        }
+
+        public function meilleursUGlobal(){
+            $listeMUG = $this->modele->get_meilleursUtilisateursGlobal();
+            $this->vue->affiche_MUG($listeMUG);
         }
 
         public function formMap(){
