@@ -20,15 +20,15 @@
             // si $a est vide alors 'profilGeneral', sinon il prend la valeur de $a
             $this->action = isset($_GET['action']) ? $_GET['action'] : 'profilGeneral';
 
-            switch ($this->action){
-                case "profilGeneral" :
-                    $this->profilG();
-                    break;  
+            switch ($this->action){  
                 case "demandeAmis" : 
                     $this->demande();                  
                     break; 
                 case "accepterCommeAmi" :
                     $this->accepterCommeAmi();
+                    break;
+                case "refuserCommeAmi" :
+                    $this->refuserCommeAmi();
                     break;
                 default :
                     die ("action inexistante");           
@@ -40,21 +40,18 @@
         }
 
         public function accepterCommeAmi(){
-            $decision = isset($_GET['decision']) ? $_GET['decision'] : 'refusée' ;
-            $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;
-            switch ($decision){
-                case "acceptée" :
-                    $this->modele->accepterDemandeAmi($idAmi);
-                    break;
-                case "refusée" :
-                    $this->modele->refuserDemandeAmi($idAmi);
-                    break;
-                
-            }
+            $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;   
+            $this->modele->accepterDemandeAmi($idAmi);               
         }
-        public function profilG(){
+        
+        public function refuserCommeAmi(){
+            $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;
+            $this->modele->refuserDemandeAmi($idAmi);
+        }
+
+        public function getAffichageProfil(){
             $profil = $this->modele->get_profil($_SESSION["id"]);
-            $this->vue->afficherProfil($profil);
+            return $this->vue->afficherProfil($profil);
         }
 
         public function demande(){
