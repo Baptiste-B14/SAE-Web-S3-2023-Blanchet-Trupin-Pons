@@ -31,6 +31,10 @@
                 case "post_XLS" : 
                     $this->post();
                     break;
+                case "rechercheAmis" :
+                    // fait suite à un form
+
+                    break;
                 case "corpsPage":
                     break;
                 default :
@@ -60,6 +64,11 @@
 
         public function formMap(){
             $this->vue->afficherFormXLS();
+        }
+
+        public function rechercheAmis(){
+            $amis = $this->modele->rechercher();
+            $this->vue->affiche_rechercheAmis($amis);
         }
 
         public function post(){

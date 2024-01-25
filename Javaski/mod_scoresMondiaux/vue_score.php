@@ -177,6 +177,18 @@
                 </div>
               </div>
             </div>
+            
+            <form action="index.php?module=mod_scores&action=rechercheAmis" method="post" enctype="multipart/form-data"> 
+                <div class="containerField">
+                    <div class="divLabel">
+                        <label for="nom">Rechercher un amis par son identifiant : </label> 
+                    </div>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <input type="submit" value="submit" id="submit">  
+            </form>
+
             <div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
               <div class="div-block-5">
                 <div class="infoscore">
@@ -191,6 +203,12 @@
               </div>
             </div>
           </section>';
+        }
+
+        public function affiche_rechercheAmis($amis){
+            foreach($amis as $ami){
+              echo $ami[identifiant].'</br>';
+            }
         }
 
     }
