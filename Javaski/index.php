@@ -39,6 +39,7 @@
                     break;
                 case ("mod_tours") :
                     $m = new ModTours();
+                    break;
                 default :
                     die("Module inconnu");
             }
