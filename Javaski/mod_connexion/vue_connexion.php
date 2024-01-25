@@ -24,7 +24,7 @@
                     <div class="divLabel">
                         <label for="mail">Adresse mail / Identifiant : </label> 
                     </div>
-                    <input type="email" id="mail" name="mail" title="une adresse mail/ identifiant valide doit être entrée" required/> 
+                    <input type="text" id="mail" name="mail" title="une adresse mail/ identifiant valide doit être entrée" required/> 
                 </div>
                 <br/>
                 <div class="containerField">
@@ -52,7 +52,7 @@
             echo '<!--Scripts JS nécessaire à bootstrap
         <script src="bootstrap-4.4.1-dist\js\jquery-3.4.1.min.js"></script>
         <script src="bootstrap-4.4.1-dist\js\bootstrap.js"></script>-->
-        <script src="Form_Creation.js"></script>
+        <script src="Form/Form_Creation.js"></script>
     
         <form action="index.php?module=mod_connexion&action=creation" method="post" enctype="multipart/form-data"> 
             <div class="containerField">
