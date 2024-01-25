@@ -18,12 +18,9 @@
 
         public function exec (){
             // si $a est vide alors 'profilGeneral', sinon il prend la valeur de $a
-            $this->action = isset($_GET['action']) ? $_GET['action'] : 'profilGeneral';
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'default';
 
             switch ($this->action){  
-                case "demandeAmis" : 
-                    $this->demande();                  
-                    break; 
                 case "accepterCommeAmi" :
                     $this->accepterCommeAmi();
                     break;
@@ -43,7 +40,7 @@
             $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;   
             $this->modele->accepterDemandeAmi($idAmi);               
         }
-        
+
         public function refuserCommeAmi(){
             $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;
             $this->modele->refuserDemandeAmi($idAmi);
@@ -51,13 +48,9 @@
 
         public function getAffichageProfil(){
             $profil = $this->modele->get_profil($_SESSION["id"]);
-            return $this->vue->afficherProfil($profil);
-        }
-
-        public function demande(){
             $demande = $this->modele->get_demandes();
-            $this->vue->afficherDemandes($demande);
-        } 
+            return $this->vue->afficherProfil($profil, $demande);
+        }
         
         public function getAffichage(){
             return $this->vue->getAffichage();
