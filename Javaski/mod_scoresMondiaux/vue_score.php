@@ -4,6 +4,7 @@
     }
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
     class VueScore extends VueGenerique{
+        
         //le constructeur
         public function __construct (){
             parent::__construct();
@@ -71,7 +72,7 @@
                     meilleursUtilisateursDiv.appendChild(paragraphe);
                 });
             </script>
-            <?
+            <?php
         }
 
         function afficherFormXLS(){
@@ -107,6 +108,45 @@
         }
 
 
+        public function getAffichage(){
+
+            return '<section class="section-6">
+            <div class="div-block-6">
+              <div>
+                <h1 class="heading-5">Scores</h1>
+              </div>
+              <div class="div-block-2">
+                <div class="w-layout-hflex flex-block-2">
+                  <h1 class="heading-7">Nom de la map</h1>
+                  <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                      <div class="w-icon-dropdown-toggle"></div>
+                      <div>Selectionner</div>
+                    </div>
+                    <nav class="w-dropdown-list">
+                      <a href="#" class="w-dropdown-link">Link 1</a>
+                      <a href="#" class="w-dropdown-link">Link 2</a>
+                      <a href="#" class="w-dropdown-link">Link 3</a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
+              <div class="div-block-5">
+                <div class="infoscore">
+                  <p class="infos">Rank</p>
+                </div>
+                <div class="infoscore">
+                  <p class="infos">Joueur</p>
+                </div>
+                <div class="infoscore">
+                  <p class="infos">Score</p>
+                </div>
+              </div>
+            </div>
+          </section>';
+        }
 
     }
 ?>

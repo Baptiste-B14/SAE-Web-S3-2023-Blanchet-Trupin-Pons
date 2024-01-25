@@ -22,14 +22,14 @@
                 a_joue.idUtilisateur,
                 SUM(Partie.score) AS totalScore,
                 DENSE_RANK() OVER (ORDER BY SUM(Partie.score) DESC) AS rang
-              FROM
+              FROM  
                 a_joue
                 INNER JOIN Partie ON a_joue.idPartie = Partie.idPartie
                 INNER JOIN a_eu_lieu_dans ON Partie.idPartie = a_eu_lieu_dans.idPartie
               WHERE
                 a_eu_lieu_dans.idMap = (SELECT idMap FROM Map WHERE nom = $map) 
               GROUP BY
-                a_joue.idUtilisateur
+                a_joue.idUtilisateur;
             )
             SELECT
               u.idUtilisateur,
@@ -45,8 +45,8 @@
               u.rang;";
           
           
-          $prepare = $bdd->prepare($query);
-          $prepare->execute(['mail'=>$_POST["mail"]]);
+          $prepare = self::$bdd->prepare($query);
+          $prepare->execute([]);
           $rep= $prepare->fetchAll();
 
           return $rep;

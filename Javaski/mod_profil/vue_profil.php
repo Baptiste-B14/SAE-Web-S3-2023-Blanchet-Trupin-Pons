@@ -1,6 +1,6 @@
 <?php
     if (!MY_APP){
-        die("Fichier externe détécté");
+        die("Fichier externe détecté");
     }
     include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
     class VueProfil extends VueGenerique{
@@ -14,7 +14,7 @@
             $image = $profil["cheminVersPhoto"];
             $affichageprofil = "<div class='containerField'>";
             $affichageprofil = $affichageprofil.'<img src="' . $image . '" alt="PP">';
-            $affichageprofil = $affichageprofil."identifiant : ", $profil["identifiant"], " Mail : ", $profil["courriel"];
+            $affichageprofil = $affichageprofil."identifiant : ". $profil["identifiant"]. " Mail : ". $profil["courriel"];
             if($profil["droits"] == true){
                 $affichageprofil = $affichageprofil."Vous etes modérateur !";
             }

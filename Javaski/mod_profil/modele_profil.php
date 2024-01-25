@@ -28,7 +28,7 @@
         JOIN
             utilisateur ON demande_ami.idUtilisateur1 = utilisateur.idUtilisateur
         WHERE
-            demande_ami.idUtilisateur2 = $_SESSION["id"];";
+            demande_ami.idUtilisateur2 = :id ;";
 
             $prepare = $bdd->prepare($query);
             $prepare->execute(['id'=>$_SESSION["id"]]);
