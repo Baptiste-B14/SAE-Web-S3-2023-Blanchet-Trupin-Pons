@@ -12,7 +12,9 @@ class ModTours{
 	public function __construct() {
 		$this->controleur = new ContTours();
 	}
-	
+	public function exec(){
+		$this->controleur->exec();
+	}
 	public function affiche(){return $this->controleur->getAffichage();}
 	
 
