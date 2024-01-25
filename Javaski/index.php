@@ -8,12 +8,13 @@
         die("Fichier externe détécté");
     }
    
-   
+        
         include_once 'modules/mod_leJeu/mod_leJeu.php';
-        include_once 'modules/mod_scoresMondiaux/mod_scoresMondiaux.php';
-        include_once 'modules/mod_lesTours/mod_lesTours.php';
+        include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_scoresMondiaux\mod_score.php';
+        include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_lesTours\mod_lesTours.php';
         include_once 'composants/mod_menu.php';
         include_once 'mod_connexion/mod_connexion.php';
+        include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_profil\mod_profil.php';
        
        
         $compMenu = new ModMenus();
@@ -46,8 +47,8 @@
         }
         
 		$m->exec();
+        $var = $m->affiche();
        
-        $affichageModule = $m->affiche();
         include_once 'template.php';
 ?>
 

@@ -10,7 +10,7 @@ class ModJeu{
 		$this->controleur = new ContJeu();
 	}
 	
-	public function affiche(){return $this->controleur->getAffichageJeu();}
+	public function affiche(){return $this->controleur->getAffichage();}
 	
 	public function exec(){
 		

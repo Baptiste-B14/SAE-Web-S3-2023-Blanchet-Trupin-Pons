@@ -18,7 +18,7 @@
 
         public function exec (){
             // si $a est vide alors 'profilGeneral', sinon il prend la valeur de $a
-            $this->action = isset($_GET['action']) ? $_GET['action'] : 'default';
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'affichage profil';
 
             switch ($this->action){  
                 case "accepterCommeAmi" :
@@ -26,6 +26,8 @@
                     break;
                 case "refuserCommeAmi" :
                     $this->refuserCommeAmi();
+                    break;
+                case "affichage profil":
                     break;
                 default :
                     die ("action inexistante");           

@@ -14,11 +14,12 @@
         public function __construct (){
             $this->vue = new VueScore();
             $this->modele = new ModeleScore();
+            
         }
 
         public function exec (){
             // si $a est vide alors 'meilleursU', sinon il prend la valeur de $a
-            $this->action = isset($_GET['action']) ? $_GET['action'] : 'meilleursU';
+            $this->action = isset($_GET['action']) ? $_GET['action'] : 'corpsPage';
 
             switch ($this->action){
                 case "meilleursU" :
@@ -29,6 +30,8 @@
                     break; 
                 case "post_XLS" : 
                     $this->post();
+                    break;
+                case "corpsPage":
                     break;
                 default :
                     die ("action inexistante");           

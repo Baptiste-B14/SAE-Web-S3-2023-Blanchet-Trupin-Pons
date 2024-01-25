@@ -10,7 +10,6 @@
 
         public function __construct(){
             $this->controleur = new ContScore();
-            $this->vue = new VueScore();
         }
 
         public function exec(){

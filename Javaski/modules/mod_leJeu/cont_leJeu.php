@@ -10,11 +10,10 @@ class ContJeu{
 
 	public function __construct() {
 		$this->vue=new VueJeu();
-		$this->modele=new ModeleJeu();
 	}
 
-	public function getAffichageJeu(){
-		return $this->vue->getAffichageJeu();
+	public function getAffichage(){
+		return $this->vue->getAffichage();
 	}
 }
 
