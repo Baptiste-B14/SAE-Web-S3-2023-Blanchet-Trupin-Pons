@@ -37,6 +37,22 @@
             return $rep;
         }
 
+        public function accepterDemandeAmi($idAmi) {
+            $req = "
+            INSERT INTO est_ami_avec (idUtilisateur1, idUtilisateur2) values (:idAmi, :id);
+            DELETE FROM demande_ami WHERE idUtilisateur1=:idAmi AND idUtilisateur2=:id";
+            $pdo_req = self::$bdd->query($req);
+            $pdo_req->execute([ 'id', 'idAmi'=>htmlspecialchars($_SESSION['id']), $idAmi ]);
+
+        }
+
+        public function refuserDemandeAmi($idAmi) {
+            $req = "
+            DELETE FROM demande_ami WHERE idUtilisateur1=:idAmi AND idUtilisateur2=:id";
+            $pdo_req = self::$bdd->query($req);
+            $pdo_req->execute([ 'id', 'idAmi'=>htmlspecialchars($_SESSION['id']), $idAmi ]);
+        }
+        
         public function get_historiqueParties () {
             $req = "SELECT partie.score, partie.victoire FROM utilisateur inner join a_joué using(idUtilisateur) inner join partie where utilisateur.idUtilisateur=:id";
             $pdo_req = self::$bdd->query($req);

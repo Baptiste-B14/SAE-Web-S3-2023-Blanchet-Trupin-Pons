@@ -27,6 +27,9 @@
                 case "demandeAmis" : 
                     $this->demande();                  
                     break; 
+                case "accepterCommeAmi" :
+                    $this->accepterCommeAmi();
+                    break;
                 default :
                     die ("action inexistante");           
             }
@@ -36,6 +39,19 @@
             return $this->action;
         }
 
+        public function accepterCommeAmi(){
+            $decision = isset($_GET['decision']) ? $_GET['decision'] : 'refusée' ;
+            $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;
+            switch ($decision){
+                case "acceptée" :
+                    $this->modele->accepterDemandeAmi($idAmi);
+                    break;
+                case "refusée" :
+                    $this->modele->refuserDemandeAmi($idAmi);
+                    break;
+                
+            }
+        }
         public function profilG(){
             $profil = $this->modele->get_profil($_SESSION["id"]);
             $this->vue->afficherProfil($profil);
