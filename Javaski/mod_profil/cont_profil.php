@@ -24,7 +24,8 @@
                 case "profilGeneral" :
                     $this->profilG();
                     break;  
-                case "" :                   
+                case "demandeAmis" : 
+                    $this->demande();                  
                     break; 
                 default :
                     die ("action inexistante");           
@@ -39,6 +40,11 @@
             $profil = $this->modele->get_profil($_SESSION["id"]);
             $this->vue->afficherProfil($profil);
         }
+
+        public function demande(){
+            $demande = $this->modele->get_demandes();
+            $this->vue->afficherDemandes($demande);
+        } 
         
         public function getAffichage(){
             return $this->vue->getAffichage();
