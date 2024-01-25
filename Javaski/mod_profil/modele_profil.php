@@ -13,7 +13,7 @@
 
         public function get_profil($id){
             $query= "SELECT * FROM utilisateur WHERE idUtilisateur=:id";
-            $prepare = $bdd->prepare($query);
+            $prepare = self::$bdd->prepare($query);
             $prepare->execute(['id'=>$id]);
             $rep= $prepare->fetchAll();
 
@@ -22,7 +22,7 @@
 
         public function get_demandes(){
             $query= "SELECT
-            utilisateur.identififant
+            utilisateur.identifiant
         FROM
             demande_ami
         JOIN
@@ -30,7 +30,7 @@
         WHERE
             demande_ami.idUtilisateur2 = :id ;";
 
-            $prepare = $bdd->prepare($query);
+            $prepare = self::$bdd->prepare($query);
             $prepare->execute(['id'=>$_SESSION["id"]]);
             $rep= $prepare->fetchAll();
 

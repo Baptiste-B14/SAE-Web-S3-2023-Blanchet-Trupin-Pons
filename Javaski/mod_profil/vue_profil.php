@@ -10,12 +10,12 @@
         }
         
         public function afficherProfil($profil, $demandes){
-
-            $image = $profil["cheminVersPhoto"];
+            
+            $image = $profil[0]["cheminVersPhoto"];
             $affichageprofil = "<div class='containerField'>";
             $affichageprofil = $affichageprofil.'<img src="' . $image . '" alt="PP">';
-            $affichageprofil = $affichageprofil."identifiant : ". $profil["identifiant"]. " Mail : ". $profil["courriel"];
-            if($profil["droits"] == true){
+            $affichageprofil = $affichageprofil."identifiant : ". $profil[0]["identifiant"]. " Mail : ". $profil[0]["courriel"];
+            if($profil[0]["droits"] == true){
                 $affichageprofil = $affichageprofil."Vous etes modérateur !";
             }
             else {

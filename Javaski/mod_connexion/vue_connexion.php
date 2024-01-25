@@ -33,7 +33,7 @@
                     </div>
                     <input type="password" id="mdp" name="mdp" required/> 
                 </div>
-                <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                <input type="hidden" name="csrf_token" value="'.$csrfToken.'">
     
                 <br/>
                 
@@ -103,7 +103,7 @@
                 <input type="password" id="confirmmdp" name="confirmmdp" title="une confirmation est necessaire" required/> 
             </div>
             <br/>
-            <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+            <input type="hidden" name="csrf_token" value="'.$csrfToken.'">
             
             <input type="submit" value="submit" id="submit">  
         </form>';
