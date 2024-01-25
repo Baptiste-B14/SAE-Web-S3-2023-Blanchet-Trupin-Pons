@@ -60,18 +60,32 @@ class VueTours extends VueGenerique{
     
     public function initialiserVueTours($tours){
         for ($tours : $tour){
+
+            $req1 =  "SELECT count(idTour) as nombreDeSelection FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour";
+            $pdo_req1 = self::$bdd->query($req1);
+            $pdo_req1->execute([ 'idT'=>htmlspecialchars($tour[0]["idTour"])]);
+            $nbSelection = $pdo_req1->fetchAll() ;
+
+            $req = "SELECT SUM(nombreKills) as nombreDeKills FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour";
+            $pdo_req = self::$bdd->query($req);
+            $pdo_req->execute([ 'idT'=>htmlspecialchars($tour[0]["idTour"])]);
+            $nbKills = $pdo_req->fetchAll() ;
+            
+            $tauxDeVictoire = $tour[0]["pourcentageVictoire"];
+
+
             $this->vueTours = $this->vueTours.'<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
             <div class="div-block-5">
               <div class="infoscore">
-                <p class="infos">Nombre de Selection</p>
+                <p class="infos">Nombre de Selection : '.$nbSelection.'</p>
               </div>
               <div class="infoscore">
-                <p class="infos">Nombre de Kill</p>
+                <p class="infos">Nombre de Kill : '.$nbKills.'</p>
               </div>
               <div class="infoscore">
                 <p class="infos">Nombre de Destruction</p>
               </div>
-              <p class="infos">WinRate</p>
+              <p class="infos">WinRate : '.$tauxDeVictoire.'</p>
             </div>
           </div>';
         }
