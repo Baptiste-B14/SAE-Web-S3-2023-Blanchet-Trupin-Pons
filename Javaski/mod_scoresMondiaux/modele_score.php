@@ -29,10 +29,10 @@
 
         public function post_BD(){
           // TO DO : trouver meilleure facon de voir si form ok ? 
-          if (isset($_POST["id"])){
+        
                  
             $bdd= $this->getbdd();
-
+        
             // Securite = verif conformiter token du fichier et du formulaire 
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
                 // Token non valide = traitement erreur
@@ -53,7 +53,7 @@
             if (in_array($fileExtension, $allowedFileTypes)) {
 
             $emplacement_temp = $_FILES['fichier']['tmp_name'];
-            $nomFichier = 'C:\wamp64\www\Site-Javaski\Javaski\mod_scoresMondiaux\Map\ ' . $_FILES['fichier']['name'];
+            $nomFichier = 'mod_scoresMondiaux/Map/' . $_FILES['fichier']['name'];
             move_uploaded_file($emplacement_temp, $nomFichier);
             }
             else{
@@ -63,14 +63,13 @@
             /*----*/ 
 
 
-
             $query='INSERT INTO map(nom, cheminVersFichier) VALUES (:nom, :chemin)';
             $prepare = $bdd->prepare($query);
             // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
             $prepare->execute(['nom'=>htmlspecialchars($_POST["nom"]), 'chemin'=>$nomFichier]);
             $rep= $prepare->fetchAll();
             
-          }
+          
         }
     }
 ?>
