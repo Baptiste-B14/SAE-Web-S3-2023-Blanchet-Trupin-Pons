@@ -9,10 +9,6 @@
             parent::__construct();
         }
         
-        public function menu(){
-           
-        }
-
         public function afficherProfil($profil, $demandes){
 
             $image = $profil["cheminVersPhoto"];

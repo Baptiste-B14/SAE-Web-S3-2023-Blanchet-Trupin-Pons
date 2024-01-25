@@ -46,14 +46,10 @@
             $this->modele->refuserDemandeAmi($idAmi);
         }
 
-        public function getAffichageProfil(){
+        public function getAffichage(){
             $profil = $this->modele->get_profil($_SESSION["id"]);
             $demande = $this->modele->get_demandes();
             return $this->vue->afficherProfil($profil, $demande);
-        }
-        
-        public function getAffichage(){
-            return $this->vue->getAffichage();
         }
 
     }
