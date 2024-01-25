@@ -21,6 +21,9 @@
         public function affiche(){
             return $this->controleur->getAffichage();
         }
+
+        
+
     }
 
             
