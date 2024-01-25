@@ -10,7 +10,7 @@ class VueMenus {
     <a href="#Home" class="logo-linkblock w-inline-block"><img src="images/logo_1.png" loading="lazy" width="72" alt="" class="logo"></a>
     <div class="menu-link">
       <a href="index.php?module=mod_jeu" class="nav-links">LE JEU</a>
-      <a href="index.php?module=mod_statistiques" class="nav-links">LES TOURS</a>
+      <a href="index.php?module=mod_tours" class="nav-links">LES TOURS</a>
       <a href="index.php?module=mod_scores" class="nav-links">SCORES MONDIAUX</a>
       <a href="index.php?module=mod_connexion&action=formCreation" class="nav-links hover cta">CREATION</a>
       <a href="index.php?module=mod_connexion&action=formConnexion" class="nav-links hover cta">CONNEXION</a>
@@ -24,7 +24,7 @@ class VueMenus {
     <a href="#Home" class="logo-linkblock w-inline-block"><img src="images/logo_1.png" loading="lazy" width="72" alt="" class="logo"></a>
     <div class="menu-link">
       <a href="index.php?module=mod_jeu" class="nav-links">LE JEU</a>
-      <a href="index.php?module=mod_statistiques" class="nav-links">LES TOURS</a>
+      <a href="index.php?module=mod_tours" class="nav-links">LES TOURS</a>
       <a href="index.php?module=mod_scores" class="nav-links">SCORES MONDIAUX</a>
       <a href="index.php?module=mod_profil" class="nav-links">MON PROFIL</a>
       <a href="index.php?module=mod_connexion&action=deconnexion" class="nav-links hover cta">DECONNEXION</a>
@@ -45,7 +45,7 @@ class VueMenus {
             <a href="index.php?module=mod_leJeu" class="button-2 w-button">Le Jeu</a>
           </div>
           <div class="w-col w-col-2">
-            <a href="index.php?module=mod_lesTours" class="button-2 w-button">Les Tours</a>
+            <a href="index.php?module=mod_tours" class="button-2 w-button">Les Tours</a>
           </div>
           <div class="w-col w-col-2">
             <a href="index.php?module=mod_profil" class="button-2 w-button">Mon Profil</a>

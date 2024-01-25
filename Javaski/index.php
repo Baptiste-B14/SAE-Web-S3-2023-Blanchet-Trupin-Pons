@@ -37,6 +37,8 @@
                     //connexion::initConnexion();
                     $m = new ModConnexion();
                     break;
+                case ("mod_tours") :
+                    $m = new ModTours();
                 default :
                     die("Module inconnu");
             }
