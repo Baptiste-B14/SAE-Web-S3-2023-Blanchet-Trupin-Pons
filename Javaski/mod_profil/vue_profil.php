@@ -61,7 +61,7 @@
                 <h1>Mes Amis</h1>
                 <a href="index.php?module=mod_profil&action=" class="button-7 w-button">Demander un ami</a>
               </section>
-              <section class="section-2">
+              <section class="sectionInfos">
                 <div class="w-layout-blockcontainer container-3 w-container">
                   <div>
                     <div class="w-row">
@@ -98,7 +98,7 @@
                   </div>
                 </div>
               </section>
-              <section class="section-2">
+              <section class="sectionInfos">
                 <div class="w-layout-blockcontainer container-3 w-container">
                   <div>
                     <div class="w-row">
@@ -144,7 +144,7 @@
             
                         
             $vueProfil = $vueProfil.'
-              <section class="section-2">
+              <section class="sectionInfos">
                 <div>
                   <div class="columns-3 w-row">
                         <div class="w-col w-col-6">
@@ -186,7 +186,7 @@
                   </div>
                 </div>
               </section>
-              <section class="section-2">
+              <section class="sectionInfos">
                         <div class="w-layout-blockcontainer container-3 w-container">
                             <div>
                             <div class="columns-3 w-row">
@@ -212,125 +212,6 @@
                         </section>
                     </div>';
                 return $vueProfil;
-                /**return '<div class="w-layout-blockcontainer container-2 w-container">
-                <h1 class="heading-3">Mon Profil</h1>
-                <section>
-                  <div class="columns-2 w-row">
-                    <div class="column-4 w-col w-col-4"> <img src="'.$image.'" alt="PP" class="image-2"></div>
-                        <div class="column-5 w-col w-col-4">
-                            <div class="text-block-2"><strong>Pseudo du Joueur</strong></div>
-                        </div>
-                        <div class="w-col w-col-4"></div>
-                    </div>
-                </section>
-
-                <section class="config">
-                  <a href="#" class="boutonconfig w-button">Button Text</a>
-                  <a href="#" class="boutonconfig w-button">Button Text</a>
-                </section>
-                <section class="config">
-                  <a href="#" class="boutonconfig w-button">Button Text</a>
-                  <a href="#" class="boutonconfig w-button">Button Text</a>
-                </section>
-                <div class="amis">
-                  <section class="section">
-                    <h1>Mes Amis</h1>
-                    <a href="#" class="button-7 w-button">Demander un ami</a>
-                  </section>
-                  <section class="section-2">
-                    <div class="w-layout-blockcontainer container-3 w-container">
-                      <div>
-                        <div class="w-row">
-                          <div class="w-col w-col-4">
-                            <p class="paragraph-5"><strong>Username</strong></p>
-                          </div>
-                          <div class="w-col w-col-4">
-                            <p class="paragraph-6"><strong>Dernière connexion</strong><br></p>
-                          </div>
-                          <div class="w-col w-col-4">
-                            <p class="paragraph-5"><strong>Score</strong></p>
-                          </div>
-                        </div>
-                        <div class="w-layout-vflex flex-block">
-                          <div class="w-row">
-                            <div class="w-col w-col-4">
-                              <div class="tabinfo">username</div>
-                            </div>
-                            <div class="w-col w-col-4">
-                              <div class="tabinfo">
-                                <div class="tabinfo">score random<br><br><br>‍</div>
-                              </div>
-                            </div>
-                            <div class="w-col w-col-4">
-                              <div class="tabinfo">score random</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <section class="section-2">
-                  <div class="w-layout-blockcontainer container-3 w-container">
-                    <div>
-                      <div class="w-row">
-                        <div class="w-col w-col-4">
-                          <p class="paragraph-5"><strong>Username</strong></p>
-                        </div>
-                        <div class="w-col w-col-4">
-                          <p class="paragraph-6"><strong>Accepter</strong></p>
-                        </div>
-                        <div class="w-col w-col-4">
-                          <p class="paragraph-5"><strong>Refuser</strong></p>
-                        </div>
-                      </div>
-                      <div class="w-layout-vflex flex-block">
-                        <div class="w-row">
-                          <div class="w-col w-col-4">
-                            <div class="tabinfo">username</div>
-                          </div>
-                          <div class="w-col w-col-4">
-                            <div class="tabinfo">
-                              <a href="#Home" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 80vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
-                            </div>
-                          </div>
-                          <div class="column-7 w-col w-col-4">
-                            <a href="#Home" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                  <section class="section-2">
-                    <div class="w-layout-blockcontainer container-3 w-container">
-                      <div>
-                        <div class="columns-3 w-row">
-                          <div class="w-col w-col-6">
-                            <p class="paragraph-5"><strong>Map</strong></p>
-                          </div>
-                          <div class="w-col w-col-6">
-                            <p class="paragraph-5"><strong>Score</strong></p>
-                          </div>
-                        </div>
-                        <div class="w-layout-vflex flex-block">
-                          <div class="w-row">
-                            <div class="w-col w-col-6">
-                              <div class="tabinfo">This is some text inside of a div block.<br><br><br>‍</div>
-                            </div>
-                            <div class="w-col w-col-6">
-                              <div class="tabinfo">This is some text inside of a div block.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>';*/
         }
-
-        
-
-
-
     }
 ?>
