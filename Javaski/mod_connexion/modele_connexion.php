@@ -38,7 +38,7 @@
                 if (in_array($fileExtension, $allowedFileTypes)) {
 
                 $emplacement_temp = $_FILES['pp']['tmp_name'];
-                $nomFichier = 'C:\wamp64\www\Site-Javaski\Javaski\mod_connexion\PhotosProfil\ ' . $_FILES['pp']['name'];
+                $nomFichier = 'mod_connexion/PhotosProfil/' . $_FILES['pp']['name'];
                 move_uploaded_file($emplacement_temp, $nomFichier);
                 }
                 else{

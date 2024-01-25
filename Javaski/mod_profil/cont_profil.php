@@ -51,7 +51,9 @@
         public function getAffichage(){
             $profil = $this->modele->get_profil($_SESSION["id"]);
             $demande = $this->modele->get_demandes();
-            return $this->vue->afficherProfil($profil, $demande);
+            //return $this->vue->afficherProfil($profil, $demande);
+            return $this->vue->afficheProfil($profil);
+        
         }
 
     }
