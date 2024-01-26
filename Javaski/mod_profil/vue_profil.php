@@ -88,12 +88,14 @@
                         $prepare1 = $bdd->prepare($req3);
                         $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur2"])]);
                         $identifiantUtilisateur= $prepare1->fetchAll(); 
-                        $vueProfil = $vueProfil.'
-                        <div class="w-layout-hflex flex-block-4">
-                          <div class="tabinfo">'.$identifiantUtilisateur[0]["identifiant"].'</div>
-                          <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="64"  class="logo"></a>
-                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="64" alt="" class="logo"></a>
-                        </div>';
+                        if (!empty($identifiantUtilisateur)){
+                          $vueProfil = $vueProfil.'
+                          <div class="w-layout-hflex flex-block-4">
+                            <div class="tabinfo">'.$identifiantUtilisateur[0]["identifiant"].'</div>
+                            <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="64"  class="logo"></a>
+                            <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="64" alt="" class="logo"></a>
+                          </div>';
+                        }
                       }
                         
                       $vueProfil = $vueProfil.'</div>

@@ -44,10 +44,9 @@
             $rep= $prepare->fetchAll();
             if (!empty($rep)){
                 // envoie demande
-                $id2 = $rep[0]["idUtilisateur"]
-                $req2 = "
-                INSERT INTO demande_ami (idUtilisateur1, idUtilisateur2) values (:id1, :id2)";
-                $pdo_req2 = self::$bdd->prepare($req);
+                $id2 = $rep[0]["idUtilisateur"];    
+                $req2 = "INSERT INTO demande_ami (idUtilisateur1, idUtilisateur2) values (:id1, :id2)";
+                $pdo_req2 = self::$bdd->prepare($req2);
                 $pdo_req2->execute([ 'id1'=>htmlspecialchars($_SESSION['id']), 'id2'=>htmlspecialchars($id2)]);
             }
         }
