@@ -5,7 +5,7 @@ if (!MY_APP){
 include_once 'C:\wamp64\www\Site-Javaski\Javaski\vue_generique.php';
 
 class VueTours extends VueGenerique{
-    private $vueTours;
+  private $vueTours;
 	public function __construct() {
         parent::__construct();
         $this->vueTours = '<section class="section-6">
@@ -63,7 +63,7 @@ class VueTours extends VueGenerique{
             $tauxDeVictoire = $tour["pourcentageVictoire"];
 
 
-            $vueTours = $vueTours.'
+            $this->vueTours .= '
             <div class="div-block-5">
               <div class="infoscore">
                 <p class="infos">Nombre de Selection : '.$nbSelection[0]["nombreDeSelection"].'</p>
@@ -78,7 +78,7 @@ class VueTours extends VueGenerique{
             </div>
             ';
         }
-        $this->vueTours .= $vueTours.'</div></section>';
+        $this->vueTours .='</div></section>';
     }
 	public function getAffichage(){
         return $this->vueTours;
