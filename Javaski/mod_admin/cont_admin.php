@@ -36,20 +36,17 @@ class ContAdmin{
 
 	public function accepterUser(){
 		$idUser = isset($_GET['idUser']) ? $_GET['idUser'] : 0 ;   
-		$this->modele->accepterDemandeAmi($idUser);               
+		$this->modele->accepterUser($idUser);               
 	}
 
 	public function refuserUser(){
 		$idUser = isset($_GET['idUser']) ? $_GET['idUser'] : 0 ;
-		$this->modele->refuserDemandeAmi($idUser);
+		$this->modele->refuserUser($idUser);
 	}
 	
 	public function getAffichage(){
-		$profil = $this->modele->get_profil($_SESSION["id"]);
-		$demandes = $this->modele->get_demandes();
-		$amis = $this->modele->get_listeAmis();
-		//return $this->vue->afficherProfil($profil, $demande);
-		return $this->vue->afficheProfil($profil, $demandes, $amis, $this->modele->get_historiqueParties(), $this->modele->getbdd());
+		$demandesCreationComptes = $this->modele->get_listeDemandeurs();
+		return $this->vue->afficheProfil($demandesCreationComptes);
 	
 	}
 }
