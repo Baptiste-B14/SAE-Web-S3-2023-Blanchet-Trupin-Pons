@@ -49,7 +49,7 @@
 
 
 
-                $query='INSERT INTO demande_creation(pseudo, identifiant, courriel, motdepasse, pointsExperience, cheminVersPhoto, droits) VALUES (:user, :user, :mail, :mdp, 0, :pp, :droits)';
+                $query='INSERT INTO demande_creation(pseudo, identifiant, courriel, motdepasse, cheminVersPhoto, droits) VALUES (:user, :user, :mail, :mdp, 0, :pp, :droits)';
                 $prepare = $bdd->prepare($query);
                 // SECURITE : on casse les potentiel injection de script via les input texte grace a la founction htmlspecialchars
                 $prepare->execute(['user'=>htmlspecialchars($_POST["id"]), 'mail'=>htmlspecialchars($_POST["mail"]), 'mdp'=>password_hash($_POST["mdp"], PASSWORD_DEFAULT), 'pp'=>$nomFichier, 'droits'=>false]);
