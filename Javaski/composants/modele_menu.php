@@ -2,9 +2,11 @@
 
 
 include_once 'composants/cont_menu.php';
+include_once 'C:\wamp64\www\Site-Javaski\Javaski\connexion.php';
 
-class ModeleMenus{
+class ModeleMenus extends Connexion{
 	public function __construct() {
+		parent::initConnexion();
 	}
 
 	public function userAdministrateur(){

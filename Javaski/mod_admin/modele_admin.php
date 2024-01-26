@@ -2,6 +2,7 @@
 
 
 include_once 'mod_admin/cont_admin.php';
+include_once 'C:\wamp64\www\Site-Javaski\Javaski\connexion.php';
 
 class ModeleAdmin{
 	public function __construct() {
