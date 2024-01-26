@@ -32,10 +32,12 @@ class VueTours extends VueGenerique{
               </div>
             </div>
           </div>
-        </div>';
+        </div>
+        <div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">';
 	}
     // Adapter cette fonction pour afficher dynamiquement les tours
     // dans la fonction initialiserVueTours
+    /**
     public function afficheAllTours($listeTours){
         ?><ul><?php
         foreach($listeTours as $Tour){
@@ -44,10 +46,8 @@ class VueTours extends VueGenerique{
         ?></ul><?php
 
     }
-    
+    **/
     public function initialiserVueTours($tours, $bdd){
-
-      $vueTours =  '<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">';
         foreach ($tours as $tour){
 
             $req1 =  'SELECT count(idTour) as nombreDeSelection FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour';
