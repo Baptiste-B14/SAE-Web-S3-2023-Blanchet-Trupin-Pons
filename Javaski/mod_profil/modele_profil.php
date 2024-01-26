@@ -41,7 +41,7 @@
             SELECT idUtilisateur FROM utilisateur WHERE identifiant=:nomUti";
             $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute([ 'nomUti'=>htmlspecialchars($_POST["nomUti"])]);
-            $rep= $prepare->fetchAll();
+            $rep= $pdo_req->fetchAll();
             echo"test";
             if (!empty($rep)){
                 echo"test2";
