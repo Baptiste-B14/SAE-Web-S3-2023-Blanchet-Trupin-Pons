@@ -1,6 +1,7 @@
 <?php
 
 class VueAdmin {
+  private $affichageAdmin;
 	private $affichageOutilsAdmin;
   private $affichageValidationComptes;
   
@@ -44,15 +45,18 @@ class VueAdmin {
             <a href="index.php?module=mod_connexion&action=deconnexion" class="button-2 w-button">Deconnexion</a>
           </div>';
 	}
-  public function getAffichageMenuUtilisateurNonConnecte(){
-    return $this->affichageMenuUtilisateurNonConnecte;
+  public function setAffichage($affichage){
+    $this->affichageAdmin = $affichage;
   }
-	public function getAffichageMenuUtilisateur(){
-		return $this->affichageMenuUtilisateur;
+  public function getAffichage(){
+    return $this->affichageAdmin;
+  }
+  public function getAffichageOutilsAdmin(){
+    return $this->affichageOutilsAdmin;
+  }
+	public function getAffichageValidationComptes(){
+		return $this->affichageValidationComptes;
 	}
-  public function getAffichageMenuAdministrateur(){
-    return $this->affichageMenuAdministrateur;
-  }
 
 	
 }
