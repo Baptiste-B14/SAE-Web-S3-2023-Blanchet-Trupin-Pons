@@ -8,30 +8,31 @@ class VueTours extends VueGenerique{
     private $vueTours;
 	public function __construct() {
         parent::__construct();
-        $this->vueTours = '<div class="div-block-6">
-        <div>
+        $this->vueTours = '<section class="section-6">
+        <div class="div-block-6">
           <div>
-            <h1 class="heading-5">Tours</h1>
-          </div>
-        </div>
-        <div class="div-block-2">
-          <div class="w-layout-hflex flex-block-2">
-            <h1 class="heading-7">Tour</h1>
-            <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-              <div class="dropdown-toggle w-dropdown-toggle">
-                <div class="w-icon-dropdown-toggle"></div>
-                <div>Selectionner</div>
-              </div>
-              <nav class="w-dropdown-list">
-                <a href="#" class="w-dropdown-link">Link 1</a>
-                <a href="#" class="w-dropdown-link">Link 2</a>
-                <a href="#" class="w-dropdown-link">Link 3</a>
-                <a href="#" class="w-dropdown-link">Link 4</a>
-              </nav>
+            <div>
+              <h1 class="heading-5">Tours</h1>
             </div>
           </div>
-        </div>
-      </div>';
+          <div class="div-block-2">
+            <div class="w-layout-hflex flex-block-2">
+              <h1 class="heading-7">Tour</h1>
+              <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="w-icon-dropdown-toggle"></div>
+                  <div>Selectionner</div>
+                </div>
+                <nav class="w-dropdown-list">
+                  <a href="#" class="w-dropdown-link">Link 1</a>
+                  <a href="#" class="w-dropdown-link">Link 2</a>
+                  <a href="#" class="w-dropdown-link">Link 3</a>
+                  <a href="#" class="w-dropdown-link">Link 4</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>';
 	}
     // Adapter cette fonction pour afficher dynamiquement les tours
     // dans la fonction initialiserVueTours
@@ -46,7 +47,7 @@ class VueTours extends VueGenerique{
     
     public function initialiserVueTours($tours, $bdd){
 
-      $vueTours =  '<div class="w-layout-blockcontainer container-2 w-container">';
+      $vueTours =  '<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">';
         foreach ($tours as $tour){
 
             $req1 =  'SELECT count(idTour) as nombreDeSelection FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour';
@@ -62,7 +63,7 @@ class VueTours extends VueGenerique{
             $tauxDeVictoire = $tour["pourcentageVictoire"];
 
 
-            $vueTours = $vueTours.'<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
+            $vueTours = $vueTours.'
             <div class="div-block-5">
               <div class="infoscore">
                 <p class="infos">Nombre de Selection : '.$nbSelection[0]["nombreDeSelection"].'</p>
@@ -75,9 +76,9 @@ class VueTours extends VueGenerique{
               </div>
               <p class="infos">WinRate : '.$tauxDeVictoire.'</p>
             </div>
-          </div>';
+            ';
         }
-        $this->vueTours = $vueTours.'</section></div>';
+        $this->vueTours = $vueTours.'</div></section>';
     }
 	public function getAffichage(){
         return $this->vueTours;
