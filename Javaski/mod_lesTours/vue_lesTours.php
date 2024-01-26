@@ -78,7 +78,7 @@ class VueTours extends VueGenerique{
             </div>
             ';
         }
-        $this->vueTours = $vueTours.'</div></section>';
+        $this->vueTours .= $vueTours.'</div></section>';
     }
 	public function getAffichage(){
         return $this->vueTours;
