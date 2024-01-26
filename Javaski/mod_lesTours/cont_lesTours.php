@@ -34,7 +34,7 @@ class ContTours{
 
     public function allTours(){
         $listeTours = $this->modele->getAllTours();
-        $this->vue->initialiserVueTours($listeTours);
+        $this->vue->initialiserVueTours($listeTours, $this->modele->getbdd());
         
     }
 
