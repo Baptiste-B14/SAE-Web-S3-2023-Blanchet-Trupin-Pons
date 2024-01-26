@@ -63,7 +63,7 @@ class VueTours extends VueGenerique{
             $tauxDeVictoire = $tour["pourcentageVictoire"];
 
 
-            $this->vueTours .= '<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
+            $this->vueTours .= '<div class="statistiques"><img src="'.$tour['image'].'" width="64px" loading="lazy" alt="">
             <div class="div-block-5">
               <div class="infoscore">
                 <p class="infos">Nombre de Selection : '.$nbSelection[0]["nombreDeSelection"].'</p>
