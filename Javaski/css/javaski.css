@@ -388,6 +388,7 @@ body {
 }
 
 .footer-copyright {
+  width: 75%;
   color: #3a4554;
 }
 
@@ -770,6 +771,7 @@ body {
   max-width: 1200px;
   background-color: #f2ebdc;
   flex-direction: column;
+  flex: 0 auto;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -996,6 +998,101 @@ body {
   margin-bottom: 4px;
 }
 
+.body-3 {
+  background-color: #90bbb1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-7 {
+  width: 75%;
+  height: 100ch;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #f2ebdc;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: auto;
+  align-items: center;
+  display: flex;
+}
+
+.div-block-7 {
+  text-align: center;
+  justify-content: space-between;
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
+}
+
+.heading-8 {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  padding-bottom: 0;
+}
+
+.paragraph-8 {
+  margin-top: 10px;
+  margin-right: 0;
+  padding-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.redirect {
+  margin: 20px;
+}
+
+.redirect.validation {
+  width: 300px;
+  background-color: #008b20;
+}
+
+.redirect.moderation {
+  background-color: #d20000;
+}
+
+.heading-9 {
+  width: 300px;
+}
+
+.section-8 {
+  width: 75%;
+  background-color: #f2ebdc;
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+}
+
+.body-4 {
+  background-color: #90bbb1;
+}
+
+.heading-10 {
+  text-align: center;
+}
+
+.div-block-8 {
+  justify-content: space-around;
+  padding: 5px 14px 0;
+  display: flex;
+}
+
+.image-4 {
+  margin-left: 0;
+  padding: 16px 13px;
+}
+
+.div-block-9 {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.paragraph-9, .paragraph-10 {
+  text-align: center;
+}
+
 @media screen and (max-width: 991px) {
   .navbar-logo-left-container.shadow-three {
     width: auto;
@@ -1045,6 +1142,10 @@ body {
   .menu-button.w--open {
     color: #fff;
     background-color: #a6b1bf;
+  }
+
+  .footer-subscribe {
+    width: 75%;
   }
 
   .footer-form-two {
@@ -3613,8 +3714,6 @@ textarea.w-select {
 .wf-layout-layout {
   display: grid;
 }
-
-
 
 
 /* PARTIE POUR LES FORMULAIRES */

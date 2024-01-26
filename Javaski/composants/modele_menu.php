@@ -10,7 +10,7 @@ class ModeleMenus extends Connexion{
 	}
 
 	public function userAdministrateur(){
-		$req = "SELECT droits FROM utilisateur WHERE idUtilisateur=idU";
+		$req = "SELECT droits FROM utilisateur WHERE idUtilisateur=:idU";
 		$pdo_req = self::$bdd->prepare($req);
 		$pdo_req->execute(['idU'=>htmlspecialchars($_SESSION["id"])]);
 		$user= $pdo_req->fetchAll(); 
