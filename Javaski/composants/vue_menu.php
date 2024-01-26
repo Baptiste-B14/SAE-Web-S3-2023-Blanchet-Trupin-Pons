@@ -44,7 +44,7 @@ class VueMenus {
         <a href="index.php?module=mod_scores" class="nav-links">SCORES MONDIAUX</a>
         <a href="index.php?module=mod_profil" class="nav-links">MON PROFIL</a>
         <a href="index.php?module=mod_connexion&action=deconnexion" class="nav-links hover cta">DECONNEXION</a>
-        <a href="index.php?module=mod_connexion&action=deconnexion" class="nav-links hover cta">Outils Admin</a>
+        <a href="index.php?module=mod_admin&action=affichageOutils" class="nav-links hover cta">Outils Admin</a>
         </div>
         <div data-w-id="459bebdb-edfb-018a-84a6-5afc80cd01ae" data-is-ix2-target="1" class="hamburger" data-animation-type="lottie" data-src="C:\wamp64\www\Site-Javaski\Javaski\documents\lottieflow-menu-nav-04-ffffff-easey.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="2.5833333333333335" data-duration="0"></div>
           

@@ -14,16 +14,20 @@ class ContAdmin{
 	}
 
 	public function getAffichageAdmin(){
-		$this->action = isset($_GET['action']) ? $_GET['action'] : 'affichage outils';
+		$this->action = isset($_GET['action']) ? $_GET['action'] : 'affichageOutils';
 
             switch ($this->action){  
+				case "validationComptes" :
+					$this->vue->setAffichage($this->vue->getAffichageValidationComptes());
+					break;
                 case "accepterUser" :
                     $this->accepterUser();
                     break;
                 case "refuserUser" :
                     $this->refuserUser();
                     break;
-                case "affichage outils":
+                case "affichageOutils":
+					$this->vue->setAffichage($this->vue->getAffichageOutilsAdmin());
                     break;
                 default :
                     die ("action inexistante");           
