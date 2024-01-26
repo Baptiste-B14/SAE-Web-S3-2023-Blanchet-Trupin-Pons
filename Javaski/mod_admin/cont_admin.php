@@ -15,10 +15,9 @@ class ContAdmin{
 
 	public function getAffichageAdmin(){
 		$this->action = isset($_GET['action']) ? $_GET['action'] : 'affichageOutils';
-
             switch ($this->action){  
 				case "validationComptes" :
-					$this->vue->setAffichage($this->vue->getAffichageValidationComptes());
+					$this->vue->setAffichage($this->vue->getAffichageValidationComptes($this->modele->get_listeDemandeurs()));
 					break;
                 case "accepterUser" :
                     $this->accepterUser();
