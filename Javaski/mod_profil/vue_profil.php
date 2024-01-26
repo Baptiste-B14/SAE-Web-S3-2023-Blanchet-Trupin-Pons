@@ -167,7 +167,7 @@
                         $maps= $prepare->fetchAll();
                         
                         foreach ($maps as $map) {
-                          $nomsCartes .= $map['nom'] . '<br><br><br>‍';
+                          $nomsCartes .= $map['nom'] . '<br><br>‍';
                         }
                         // Ajouter les informations de la partie à la variable $vueProfil
                               $vueProfil .= '
@@ -212,6 +212,7 @@
                         </section>
                     </div>';
                 return $vueProfil;
+
         }
     }
 ?>
