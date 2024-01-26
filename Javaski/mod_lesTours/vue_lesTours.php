@@ -74,8 +74,13 @@ class VueTours extends VueGenerique{
               <div class="infoscore">
                 <p class="infos">Nombre de Destruction</p>
               </div>
-              <p class="infos">WinRate : '.$tauxDeVictoire.'</p>
+              <div class="infoscore">
+                <p class="infos">WinRate : '.$tauxDeVictoire.'</p>
+              </div>
+                
+
             </div>
+            
             ';
         }
         $this->vueTours .='</div></section>';
