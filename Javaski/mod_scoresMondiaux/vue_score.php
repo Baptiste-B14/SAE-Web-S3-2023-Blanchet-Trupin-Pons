@@ -59,10 +59,8 @@
                   <h1 class="heading-7">Nom de la map</h1>
                   <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
                     
-                      <a href="index.php?module=mod_scores&action=form_XLS" class="w-dropdown-link">Link 1</a>
-                      <a href="#" class="w-dropdown-link">Link 2</a>
-                      <a href="#" class="w-dropdown-link">Link 3</a>
-
+                      <a href="index.php?module=mod_scores&action=form_XLS" class="w-dropdown-link">Ajouter une Map</a>
+                      
                   </div>
                 </div>
               </div>
