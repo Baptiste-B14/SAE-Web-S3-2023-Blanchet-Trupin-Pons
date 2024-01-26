@@ -3,7 +3,7 @@
 class VueAdmin {
   private $affichageAdmin;
 	private $affichageOutilsAdmin;
-  private $affichageValidationComptes;
+  
   
 	public function __construct() {
     
@@ -25,25 +25,6 @@ class VueAdmin {
     </section>
     ';
 
-    $this->affichageValidationComptes = '
-          <div class="w-col w-col-2">
-            <a href="index.php" class="navbar-brand w-nav-brand"><img src="images/Logo.png" loading="lazy" width="115" sizes="(max-width: 767px) 100vw, (max-width: 991px) 98px, 115px" alt="" srcset="images/Logo-p-500.png 500w, images/Logo-p-800.png 800w, images/Logo.png 907w"></a>
-          </div>
-          <div class="w-col w-col-2">
-            <a href="index.php?module=mod_leJeu" class="button-2 w-button">Le Jeu</a>
-          </div>
-          <div class="column-3 w-col w-col-2">
-            <a href="index.php?module=mod_leJeu" class="button-2 w-button">Le Jeu</a>
-          </div>
-          <div class="w-col w-col-2">
-            <a href="index.php?module=mod_tours" class="button-2 w-button">Les Tours</a>
-          </div>
-          <div class="w-col w-col-2">
-            <a href="index.php?module=mod_profil" class="button-2 w-button">Mon Profil</a>
-          </div>
-          <div class="w-col w-col-2">
-            <a href="index.php?module=mod_connexion&action=deconnexion" class="button-2 w-button">Deconnexion</a>
-          </div>';
 	}
   public function setAffichage($affichage){
     $this->affichageAdmin = $affichage;
@@ -54,8 +35,27 @@ class VueAdmin {
   public function getAffichageOutilsAdmin(){
     return $this->affichageOutilsAdmin;
   }
-	public function getAffichageValidationComptes(){
-		return $this->affichageValidationComptes;
+	public function getAffichageValidationComptes($demandes){
+    $affichageValidation = '<section class="section-8">
+    <h1 class="heading-10">Demande de création <br>de comptes</h1>
+    <div class="div-block-8">
+      <p>Photo de profil</p>
+      <p>Username</p>
+      <p>Adresse mail</p>
+      <p class="paragraph-9">Valider</p>
+      <p class="paragraph-10">Refuser</p>
+    </div>';
+    foreach($demandes as $demande){
+      $affichageValidation.= '
+        <div class="div-block-9"><img src="'.$demande["cheminVersPhoto"].'" loading="lazy" width="94" alt="" class="image-4">
+        <p>'.$demande["identifiant"].'</p>
+        <p>'.$demande["courriel"].'</p>
+        <a href="index.php?module=mod_profil&action=accepterUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 20vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher-p-500.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
+        <a href="index.php?module=mod_profil&action=refuserUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
+      </div>';
+    }
+    $affichageValidation.='</section>';
+    return $this->affichageValidation;
 	}
 
 	
