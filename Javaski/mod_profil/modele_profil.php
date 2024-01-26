@@ -42,7 +42,9 @@
             $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute([ 'nomUti'=>htmlspecialchars($_POST["nomUti"])]);
             $rep= $prepare->fetchAll();
+            echo"test";
             if (!empty($rep)){
+                echo"test2";
                 // envoie demande
                 $id2 = $rep[0]["idUtilisateur"];    
                 $req2 = "INSERT INTO demande_ami (idUtilisateur1, idUtilisateur2) values (:id1, :id2)";

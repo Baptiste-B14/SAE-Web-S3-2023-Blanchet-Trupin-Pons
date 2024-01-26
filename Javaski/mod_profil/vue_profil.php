@@ -35,7 +35,7 @@
             <section class="section">
               <h1>Mes Amis</h1>
               <div class="form-block w-form">
-                <form action="index.php?module=mod_profil&action=RechercheAmi" id="email-form" name="email-form" Form" method="get" class="form"><input class="text-field w-input" maxlength="256" name="nomUti" data-name="Email" placeholder="" required=""><input type="submit" class="submit-button w-button" value="Demande Ami"></form>
+                <form action="index.php?module=mod_profil&action=RechercheAmi" id="email-form" name="email-form" Form" method="get" class="form"><input type="text" class="text-field w-input" maxlength="256" name="nomUti" data-name="Email" placeholder="username" required=""><input type="submit" class="submit-button w-button" value="Demande Ami"></form>
               </div>
             </section>
             <section class="sectioninfos">
