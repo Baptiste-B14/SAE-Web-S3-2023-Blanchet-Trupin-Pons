@@ -38,17 +38,7 @@
             $image = $profil[0]["cheminVersPhoto"];
             //
             $vueProfil = '
-            <div class="w-layout-blockcontainer container-2 w-container">
-              <h1 class="heading-3">Mon Profil</h1>
-              <section class="sectionprofil">
-                <div class="columns-2 w-row">
-                  <div class="column-4 w-col w-col-4"><img src="'.$image.'" loading="lazy" alt="" class="image-2"></div>
-                  <div class="column-5 w-col w-col-4">
-                    <div class="text-block-2"><strong>'.$profil[0]["identifiant"].'</strong></div>
-                  </div>
-                  <div class="w-col w-col-4"></div>
-                </div>
-              </section>
+          
             <div class="w-layout-blockcontainer container-2 w-container">
               <h1 class="heading-3">Mon Profil</h1>
               <section>
