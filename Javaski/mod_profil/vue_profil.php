@@ -157,7 +157,7 @@
                               $vueProfil .= '
                               <div class="w-layout-hflex flex-block-4">
                                 <div class="tabinfo">' . $nomsCartes . '</div>
-                                <div class="tabinfo">' . htmlspecialchars($partie["score"]) . '<br><br><br>‍</div>
+                                <div class="tabinfo">' . htmlspecialchars($partie["score"]) . '<br>‍</div>
                               </div>';
                     }
           

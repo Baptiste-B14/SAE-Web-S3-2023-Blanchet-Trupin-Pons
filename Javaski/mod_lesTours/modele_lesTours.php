@@ -12,7 +12,7 @@ class ModeleTours extends Connexion{
 
     public function getAllTours(){
         $query= "SELECT
-        t.nomTour,
+        t.nomTour, t.idTour,
         COUNT(p.idPartie) AS nombreParties,
         SUM(CASE WHEN p.victoire THEN 1 ELSE 0 END) AS nombreVictoires,
         (SUM(CASE WHEN p.victoire THEN 1 ELSE 0 END) * 100.0 / COUNT(p.idPartie)) AS pourcentageVictoire

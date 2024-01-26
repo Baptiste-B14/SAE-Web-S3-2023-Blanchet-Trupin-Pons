@@ -45,28 +45,30 @@ class VueTours extends VueGenerique{
     }
     
     public function initialiserVueTours($tours, $bdd){
+
+      $vueTours =  '<div class="w-layout-blockcontainer container-2 w-container">';
         foreach ($tours as $tour){
 
             $req1 =  'SELECT count(idTour) as nombreDeSelection FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour';
             $pdo_req1 = $bdd->prepare($req1);
-            $pdo_req1->execute([ 'idT'=>htmlspecialchars($tour[0]["idTour"])]);
+            $pdo_req1->execute([ 'idT'=>htmlspecialchars($tour["idTour"])]);
             $nbSelection = $pdo_req1->fetchAll() ;
 
             $req = "SELECT SUM(nombreKills) as nombreDeKills FROM a_été_posé_dans WHERE idTour=:idT GROUP BY idTour";
             $pdo_req = $bdd->prepare($req);
-            $pdo_req->execute([ 'idT'=>htmlspecialchars($tour[0]["idTour"])]);
+            $pdo_req->execute([ 'idT'=>htmlspecialchars($tour["idTour"])]);
             $nbKills = $pdo_req->fetchAll() ;
             
-            $tauxDeVictoire = $tour[0]["pourcentageVictoire"];
+            $tauxDeVictoire = $tour["pourcentageVictoire"];
 
 
-            $this->vueTours = $this->vueTours.'<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
+            $vueTours = $vueTours.'<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
             <div class="div-block-5">
               <div class="infoscore">
-                <p class="infos">Nombre de Selection : '.$nbSelection.'</p>
+                <p class="infos">Nombre de Selection : '.$nbSelection[0]["nombreDeSelection"].'</p>
               </div>
               <div class="infoscore">
-                <p class="infos">Nombre de Kill : '.$nbKills.'</p>
+                <p class="infos">Nombre de Kill : '.$nbKills[0]["nombreDeKills"].'</p>
               </div>
               <div class="infoscore">
                 <p class="infos">Nombre de Destruction</p>
@@ -75,7 +77,7 @@ class VueTours extends VueGenerique{
             </div>
           </div>';
         }
-        $this->vueTours = $this->vueTours.'</section>';
+        $this->vueTours = $vueTours.'</section></div>';
     }
 	public function getAffichage(){
         return $this->vueTours;
