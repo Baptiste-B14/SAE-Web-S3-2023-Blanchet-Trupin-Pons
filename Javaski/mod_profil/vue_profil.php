@@ -97,7 +97,7 @@
                       </div>';
                   }
             
-                  $vueProfil = $vueProfil.'
+                  $vueProfil = $vueProfil.'</div>
                   </div>
                 </div>
               </section>
