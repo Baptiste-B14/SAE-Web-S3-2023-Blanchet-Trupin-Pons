@@ -9,26 +9,6 @@
             parent::__construct();
         }
         
-        public function afficherProfil($profil, $demandes){
-            
-            $image = $profil[0]["cheminVersPhoto"];
-            $affichageprofil = "<div class='containerField'>";
-            $affichageprofil = $affichageprofil.'<img src="' . $image . '" alt="PP">';
-            $affichageprofil = $affichageprofil."identifiant : ". $profil[0]["identifiant"]. " Mail : ". $profil[0]["courriel"];
-            if($profil[0]["droits"] == true){
-                $affichageprofil = $affichageprofil."Vous etes modérateur !";
-            }
-            else {
-                $affichageprofil = $affichageprofil."Vous n'etes pas modérateur ";
-            }
-            $affichageprofil = $affichageprofil."</div><div>";
-            foreach($demandes as $demande){
-                $affichageprofil= $affichageprofil."<div><p> demande d'ami de ".$demande["identififant"]."</p> <a href='index.php?module=mod_connexion&action=accepterCommeAmi&idAmi=".$demande["idUtilisateur"]."'>Accepter</a> <a href='index.php?module=mod_connexion&action=refuserCommeAmi&idAmi=".$demande["idUtilisateur"]."'>Refuser</a></div>";
-            }
-            $affichageprofil = $affichageprofil."</div>";
-            return $affichageprofil;
-        }
-
         public function pp($image){
             
             return'<img src="'.$image.'"';
@@ -42,26 +22,21 @@
             <div class="w-layout-blockcontainer container-2 w-container">
               <h1 class="heading-3">Mon Profil</h1>
               <section>
-                <div class="columns-2 w-row">
-                  <div class="column-4 w-col w-col-4"><img src="'.$image.'" alt="" class="image-2"></div>
+                <div class="columns-2 w-row" >
+                  <div class="column-4 w-col w-col-4"><img src="'.$image.'" width="96px" alt="" class="image-2"></div>
                   <div class="column-5 w-col w-col-4">
-                    <div class="text-block-2"><strong>'.$profil[0]["identifiant"].'</strong></div>
+                    <div class="text-block-2"><h2 ><strong>'.$profil[0]["identifiant"].'</strong></h2></div>
                   </div>
-                  <div class="w-col w-col-4"></div>
+                
                 </div>
               </section>';
-            $vueProfil = $vueProfil.'<section class="config">
-            <a href="#" class="boutonconfig w-button">Button Text</a>
-            <a href="#" class="boutonconfig w-button">Button Text</a>
-          </section>
-          <section class="config">
-            <a href="#" class="boutonconfig w-button">Button Text</a>
-            <a href="#" class="boutonconfig w-button">Button Text</a>
-          </section>
+            $vueProfil = $vueProfil.'
           <div class="amis">
             <section class="section">
               <h1>Mes Amis</h1>
-              <a href="#" class="button-7 w-button">Demander un ami</a>
+              <div class="form-block w-form">
+                <form id="email-form" name="email-form" Form" method="get" class="form"><input class="text-field w-input" maxlength="256" name="email" data-name="Email" placeholder="" required=""><input type="submit" class="submit-button w-button" value="Demande Ami"></form>
+              </div>
             </section>
             <section class="sectioninfos">
               <div class="w-layout-blockcontainer container-3 w-container">
@@ -71,10 +46,10 @@
                       <p class="paragraph-5"><strong>Username</strong></p>
                     </div>
                     <div class="w-col w-col-4">
-                      <p class="paragraph-6"><strong>Dernière connexion</strong><br></p>
+                      <p class="paragraph-6"><strong>Points d\'experience</strong><br></p>
                     </div>
                     <div class="w-col w-col-4">
-                      <p class="paragraph-5"><strong>Score</strong></p>
+                      <p class="paragraph-5"><strong>Courriel</strong></p>
                     </div>
                   </div>
                   <div class="w-layout-vflex boxinfos">';
@@ -82,7 +57,7 @@
                     $vueProfil= $vueProfil.'
                       <div class="w-layout-hflex flex-block-4">
                         <div class="tabinfo">'.$ami["identifiant"].'</div>
-                        <div class="tabinfo">'.$ami["experience"].'<br><br><br>‍</div>
+                        <div class="tabinfo">'.$ami["pointsExperience"].'<br><br><br>‍</div>
                         <div class="tabinfo">'.$ami["courriel"].'</div>
                       </div>';
                   }
@@ -108,16 +83,16 @@
                     <div class="w-layout-vflex boxinfos">';
                       foreach($demandes as $demande){
                         $req3='
-                        SELECT identifiant, idUtilisateur FROM demande_ami WHERE idUtilisateur1=:idU
+                        SELECT identifiant, idUtilisateur1 FROM demande_ami inner join utilisateur on (idUtilisateur1 = idUtilisateur) WHERE idUtilisateur2=:idU
                         ';
                         $prepare1 = $bdd->prepare($req3);
-                        $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur1"])]);
+                        $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur2"])]);
                         $identifiantUtilisateur= $prepare1->fetchAll(); 
                         $vueProfil = $vueProfil.'
                         <div class="w-layout-hflex flex-block-4">
-                          <div class="tabinfo">'.$identifiantUtilisateur["identifiant"].'</div>
-                          <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 80vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher-p-500.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
-                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur["idUtilisateur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
+                          <div class="tabinfo">'.$identifiantUtilisateur[0]["identifiant"].'</div>
+                          <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="64"  class="logo"></a>
+                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="64" alt="" class="logo"></a>
                         </div>';
                       }
                         
