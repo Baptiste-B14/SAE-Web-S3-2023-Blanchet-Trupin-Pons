@@ -41,15 +41,13 @@
             SELECT idUtilisateur FROM utilisateur WHERE identifiant=:nomUti";
             $pdo_req = self::$bdd->prepare($req);
             $pdo_req->execute([ 'nomUti'=>htmlspecialchars($_POST["nomUti"])]);
-            $rep= $prepare->fetchAll();
-            echo"test";
+            $rep= $pdo_req->fetchAll();
             if (!empty($rep)){
-                echo"test2";
                 // envoie demande
                 $id2 = $rep[0]["idUtilisateur"];    
-                $req2 = "INSERT INTO demande_ami (idUtilisateur1, idUtilisateur2) values (:id1, :id2)";
+                $req2 = "INSERT INTO demande_ami (idUtilisateur1, idUtilisateur2, acceptee) values (:id1, :id2, :acc)";
                 $pdo_req2 = self::$bdd->prepare($req2);
-                $pdo_req2->execute([ 'id1'=>htmlspecialchars($_SESSION['id']), 'id2'=>htmlspecialchars($id2)]);
+                $pdo_req2->execute([ 'id1'=>htmlspecialchars($_SESSION['id']), 'id2'=>htmlspecialchars($id2), 'acc'=>false]);
             }
         }
 
