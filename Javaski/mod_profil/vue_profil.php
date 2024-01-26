@@ -90,13 +90,11 @@
                   <div class="w-layout-vflex boxinfos">';
                   foreach($amis as $ami){
                     $vueProfil= $vueProfil.'
-                    <div class="w-layout-vflex boxinfos">
                       <div class="w-layout-hflex flex-block-4">
                         <div class="tabinfo">'.$ami["identifiant"].'</div>
                         <div class="tabinfo">'.$ami["experience"].'<br><br><br>‍</div>
                         <div class="tabinfo">'.$ami["courriel"].'</div>
-                      </div>
-                    </div>';
+                      </div>';
                   }
             
                   $vueProfil = $vueProfil.'
