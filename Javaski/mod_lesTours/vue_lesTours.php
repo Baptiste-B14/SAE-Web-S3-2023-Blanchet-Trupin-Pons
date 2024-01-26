@@ -33,7 +33,7 @@ class VueTours extends VueGenerique{
             </div>
           </div>
         </div>
-        <div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">';
+        ';
 	}
     // Adapter cette fonction pour afficher dynamiquement les tours
     // dans la fonction initialiserVueTours
@@ -63,7 +63,7 @@ class VueTours extends VueGenerique{
             $tauxDeVictoire = $tour["pourcentageVictoire"];
 
 
-            $this->vueTours .= '
+            $this->vueTours .= '<div class="statistiques"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="">
             <div class="div-block-5">
               <div class="infoscore">
                 <p class="infos">Nombre de Selection : '.$nbSelection[0]["nombreDeSelection"].'</p>
@@ -80,10 +80,10 @@ class VueTours extends VueGenerique{
                 
 
             </div>
-            
+            </div>
             ';
         }
-        $this->vueTours .='</div></section>';
+        $this->vueTours .='</section>';
     }
 	public function getAffichage(){
         return $this->vueTours;
