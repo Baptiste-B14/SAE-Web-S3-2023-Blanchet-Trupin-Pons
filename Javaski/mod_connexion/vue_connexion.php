@@ -19,6 +19,8 @@
             $csrfToken = $_SESSION['csrf_token'];
             
             echo '<script src="Form_Creation.js"></script>
+            <section class="section-6">
+            </br></br></br>
             <form action="index.php?module=mod_connexion&action=connexion" method="post" enctype="multipart/form-data"> 
                 <div class="containerField">
                     <div class="divLabel">
@@ -38,7 +40,8 @@
                 <br/>
                 
                 <input type="submit" value="submit" id="submit">  
-            </form>';
+            </form><br><br><br>
+            </section>';
 
         }
 
@@ -53,7 +56,8 @@
         <script src="bootstrap-4.4.1-dist\js\jquery-3.4.1.min.js"></script>
         <script src="bootstrap-4.4.1-dist\js\bootstrap.js"></script>-->
         <script src="Form/Form_Creation.js"></script>
-    
+        <section class="section-6">
+        </br></br></br>
         <form action="index.php?module=mod_connexion&action=creation" method="post" enctype="multipart/form-data"> 
             <div class="containerField">
                 <div class="divLabel" id="labelPP">
@@ -106,7 +110,8 @@
             <input type="hidden" name="csrf_token" value="'.$csrfToken.'">
             
             <input type="submit" value="submit" id="submit">  
-        </form>';
+        </form><br><br><br>
+        </section>';
         
         }
         /** 
