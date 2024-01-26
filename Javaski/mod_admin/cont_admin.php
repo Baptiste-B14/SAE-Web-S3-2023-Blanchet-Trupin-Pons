@@ -48,8 +48,7 @@ class ContAdmin{
 	}
 	
 	public function getAffichage(){
-		$demandesCreationComptes = $this->modele->get_listeDemandeurs();
-		return $this->vue->getAffichageValidationComptes($demandesCreationComptes);
+		return $this->vue->getAffichage();
 	
 	}
 }

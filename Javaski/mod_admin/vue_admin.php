@@ -13,10 +13,11 @@ class VueAdmin extends VueGenerique{
       <h1 class="heading-8">Outils administrateurs</h1>
       <div class="div-block-7">
         <div class="redirect validation">
-          <h3>Validation des <br>nouveaux comptes</h3>
+        
+          <h3><a href="index.php?module=mod_admin&action=validationComptes">Validation des <br>nouveaux comptes</a></h3>
         </div>
         <div class="redirect moderation">
-          <h3 class="heading-9">Outils de <br>modération</h3>
+          <h3> <a href="index.php?module=mod_admin&action=affichageOutils">Outils de <br>modération</a></h3>
         </div>
       </div>
       <div>
