@@ -27,6 +27,9 @@
                 case "refuserCommeAmi" :
                     $this->refuserCommeAmi();
                     break;
+                case "RechercheAmi" :
+                    $this->recherche();
+                    break;
                 case "affichage profil":
                     break;
                 default :
@@ -41,6 +44,10 @@
         public function accepterCommeAmi(){
             $idAmi = isset($_GET['idAmi']) ? $_GET['idAmi'] : 0 ;   
             $this->modele->accepterDemandeAmi($idAmi);               
+        }
+
+        public function recherche(){
+            $this->modele->envoiDemande();
         }
 
         public function refuserCommeAmi(){

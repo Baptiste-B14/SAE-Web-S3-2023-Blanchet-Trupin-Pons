@@ -34,8 +34,8 @@
           <div class="amis">
             <section class="section">
               <h1>Mes Amis</h1>
-              <div class="form-block w-form">
-                <form id="email-form" name="email-form" Form" method="get" class="form"><input class="text-field w-input" maxlength="256" name="email" data-name="Email" placeholder="" required=""><input type="submit" class="submit-button w-button" value="Demande Ami"></form>
+              <div class="form-block w-form"> 
+                <form action="index.php?module=mod_profil&action=RechercheAmi" method="post" enctype="multipart/form-data"><input type="text" class="text-field w-input" maxlength="256" name="nomUti" id="nomUti" data-name="Email" placeholder="username" required><input type="submit" class="submit-button w-button" value="Demande Ami"></form>
               </div>
             </section>
             <section class="sectioninfos">
@@ -88,12 +88,14 @@
                         $prepare1 = $bdd->prepare($req3);
                         $prepare1->execute(['idU'=>htmlspecialchars($demande["idUtilisateur2"])]);
                         $identifiantUtilisateur= $prepare1->fetchAll(); 
-                        $vueProfil = $vueProfil.'
-                        <div class="w-layout-hflex flex-block-4">
-                          <div class="tabinfo">'.$identifiantUtilisateur[0]["identifiant"].'</div>
-                          <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="64"  class="logo"></a>
-                          <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="64" alt="" class="logo"></a>
-                        </div>';
+                        if (!empty($identifiantUtilisateur)){
+                          $vueProfil = $vueProfil.'
+                          <div class="w-layout-hflex flex-block-4">
+                            <div class="tabinfo">'.$identifiantUtilisateur[0]["identifiant"].'</div>
+                            <a href="index.php?module=mod_profil&action=accepterCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="64"  class="logo"></a>
+                            <a href="index.php?module=mod_profil&action=refuserCommeAmi&idAmi='.$identifiantUtilisateur[0]["idUtilisateur1"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="64" alt="" class="logo"></a>
+                          </div>';
+                        }
                       }
                         
                       $vueProfil = $vueProfil.'</div>
