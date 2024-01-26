@@ -73,26 +73,27 @@
             </div>';
 
             
-                  foreach($listeMUG as $MUG){
-                    $vueScore = $vueScore.'<div class="statistiques"><img src="'.$Mug["image"].'" loading="lazy" alt="">
-              <div class="div-block-5">
-                <div class="infoscore">
-                  <p class="infos">Rank</p>
-                </div>
-                <div class="infoscore">
-                  <p class="infos">Joueur</p>
-                 </br><p class="elementInfos">'.$MUG["identifiant"].'</p>
-                    </div>
-                  <div class="infoscore">
-                    <p class="infos">Score</p>
-                    </br><p class="elementInfos">'.$MUG["score"].'</p>';
-                  
-                  
-                  }
-                 $this->affichageScore = $vueScore.' </div>
-                  </div>
-                </div>
-              </section>';
+            foreach($listeMUG as $MUG){
+              $vueScore = $vueScore.'
+              <div class="statistiques"><img src="'.$MUG["image"].'" width="64px" loading="lazy" alt="">
+        <div class="div-block-5">
+          <div class="infoscore">
+            <p class="infos">Rank</p>
+          </div>
+          <div class="infoscore">
+            <p class="infos">Joueur</p>
+           </br><p class="elementInfos">'.$MUG["identifiant"].'</p>
+              </div>
+            <div class="infoscore">
+              <p class="infos">Score</p>
+              </br><p class="elementInfos">'.$MUG["score"].'</p>
+              </div>
+            </div>
+          </div>';
+
+
+            }
+           $this->affichageScore = $vueScore.' </section>';
                 
                      
                     

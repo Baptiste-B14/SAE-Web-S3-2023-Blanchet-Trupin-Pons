@@ -13,7 +13,7 @@ class ContAdmin{
 		$this->vue= new VueAdmin();
 	}
 
-	public function getAffichageAdmin(){
+	public function exec(){
 		$this->action = isset($_GET['action']) ? $_GET['action'] : 'affichageOutils';
             switch ($this->action){  
 				case "validationComptes" :
@@ -49,7 +49,7 @@ class ContAdmin{
 	
 	public function getAffichage(){
 		$demandesCreationComptes = $this->modele->get_listeDemandeurs();
-		return $this->vue->afficheProfil($demandesCreationComptes);
+		return $this->vue->getAffichageValidationComptes($demandesCreationComptes);
 	
 	}
 }

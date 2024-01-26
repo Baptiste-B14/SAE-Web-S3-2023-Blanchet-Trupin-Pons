@@ -1,11 +1,12 @@
 <?php
 
-class VueAdmin {
+class VueAdmin extends VueGenerique{
   private $affichageAdmin;
 	private $affichageOutilsAdmin;
   
   
 	public function __construct() {
+    parent::__construct();
     
 		$this->affichageOutilsAdmin = '
       <section class="section-7">
@@ -50,12 +51,12 @@ class VueAdmin {
         <div class="div-block-9"><img src="'.$demande["cheminVersPhoto"].'" loading="lazy" width="94" alt="" class="image-4">
         <p>'.$demande["identifiant"].'</p>
         <p>'.$demande["courriel"].'</p>
-        <a href="index.php?module=mod_profil&action=accepterUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 20vw, (max-width: 991px) 13vw, 32px" alt="" srcset="images/case-a-cocher-p-500.png 500w, images/case-a-cocher.png 512w" class="logo"></a>
-        <a href="index.php?module=mod_profil&action=refuserUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
+        <a href="index.php?module=mod_admin&action=accepterUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/case-a-cocher.png" loading="lazy" width="72" sizes="(max-width: 479px) 20vw, (max-width: 991px) 13vw, 32px" alt="" class="logo"></a>
+        <a href="index.php?module=mod_admin&action=refuserUser&idUser='.$demande["idDemandeur"].'" class="logo-linkblock w-inline-block"><img src="images/annuler.png" loading="lazy" width="72" alt="" class="logo"></a>
       </div>';
     }
     $affichageValidation.='</section>';
-    return $this->affichageValidation;
+    return $affichageValidation;
 	}
 
 	

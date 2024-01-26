@@ -32,10 +32,12 @@
                     $this->post();
                     break;
                 case "corpsPage":
+                    $this->meilleursUGlobal();
                     break;
                 case "lienMenu":
                     $this->lienMenu();
                     break;
+                    
                 default :
                     die ("action inexistante");           
             }

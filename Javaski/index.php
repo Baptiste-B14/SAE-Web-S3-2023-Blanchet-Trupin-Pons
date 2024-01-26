@@ -15,6 +15,7 @@
         include_once 'composants/mod_menu.php';
         include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_connexion\mod_connexion.php';
         include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_profil\mod_profil.php';
+        include_once 'C:\wamp64\www\Site-Javaski\Javaski\mod_admin\mod_admin.php';
        
        
         $compMenu = new ModMenus();
@@ -39,6 +40,9 @@
                     break;
                 case ("mod_tours") :
                     $m = new ModTours();
+                    break;
+                case ("mod_admin"):
+                    $m= new ModAdmin();
                     break;
                 default :
                     die("Module inconnu");
